@@ -9,14 +9,14 @@ spec:
     type: RollingUpdate
     rollingUpdate: 
       maxUnavailable: 1
-      maxSurge: 1 
+      maxSurge: 0 
   template:
     metadata:
       labels:
         app: sa-logic
     spec:
       containers:
-        - image: rinormaloku/sentiment-analysis-logic
+        - image: maheshrajannan/sentiment-analysis-logic3
           imagePullPolicy: Always
           name: sa-logic
           ports:

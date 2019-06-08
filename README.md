@@ -8,3 +8,16 @@ To learn more about Kubernetes and other related topics check the following exam
 * [Istio around everything else series](https://rinormaloku.com/series/istio-around-everything-else/)
 * [Simple CI/CD for Kubernetes with Azure DevOps](https://www.orange-networks.com/blogs/224-azure-devops-ci-cd-pipeline-to-deploy-to-kubernetes)
 * Envoy series - to be added!
+
+Maheshs-MacBook-Pro-2:resource-manifests maheshrajannan$ minikube service list
+|-------------|----------------------|-----------------------------|
+|  NAMESPACE  |         NAME         |             URL             |
+|-------------|----------------------|-----------------------------|
+| default     | kubernetes           | No node port                |
+| default     | sa-frontend-lb       | http://192.168.99.103:30371 |
+| default     | sa-logic             | No node port                |
+| default     | sa-web-app-lb        | http://192.168.99.103:30086 |
+| kube-system | kube-dns             | No node port                |
+| kube-system | kubernetes-dashboard | No node port                |
+|-------------|----------------------|-----------------------------|
+Maheshs-MacBook-Pro-2:resource-manifests maheshrajannan$ 

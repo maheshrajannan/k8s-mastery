@@ -20,7 +20,7 @@ class App extends Component {
     };
 
     analyzeSentence() {
-        fetch('http://localhost:8080/sentiment', {
+        fetch('http://192.168.99.103:30086/sentiment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ class App extends Component {
             <MuiThemeProvider>
                 <div className="centerize">
                     <Paper zDepth={1} className="content">
-                        <h2>Sentiment Analyser</h2>
+                        <h2>Sentiment Analyser By Mahesh</h2>
                         <TextField ref={ref => this.textField = ref} onKeyUp={this.onEnterPress.bind(this)}
                                    hintText="Type your sentence."/>
                         <RaisedButton  label="Send" style={style} onClick={this.analyzeSentence.bind(this)}/>
