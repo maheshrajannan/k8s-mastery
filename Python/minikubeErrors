@@ -1,0 +1,83 @@
+minikubeErrors
+
+
+http://osxdaily.com/2018/12/31/install-run-virtualbox-macos-install-kernel-fails/
+
+just a couple of mac restarts
+
+enabling permissions fixed the issue.
+
+---
+
+Problems detected in "kube-addon-manager"
+
+after this error deleted and started minikube
+
+I second @rennekon's answer. I found that I had docker running on my machine which also installs kubectl. That installation of kubectl causes this issue to show.
+
+I took the following steps:
+
+uninstalled it using brew uninstall kubectl
+reinstalled it using brew install kubectl
+(due to symlink creation failure) I forced brew to create symlinks using brew link --overwrite kubernetes-cli
+I was then able to run my kubectl apply commands successfully.
+
+--
+
+nginx brew start nginx or something like that is what worked.
+
+
+
+docker run -d -p 8080:8080 -e SA_LOGIC_API_URL='http://172.17.0.3:5000' maheshrajannan/sentiment-analysis-web-app3
+
+oh god there is an option to deploy to kubernates by default.
+
+I kept getting error when trying to do docker run -d -p that 8080 port is already allocated.
+
+Resetting docker preferences to factory defaults did the trick. No it did NOT
+
+For one issue resetting the docker preferences
+
+Maheshs-MacBook-Pro-2:sa-webapp maheshrajannan$ ps -ef | grep java
+  501  6161  3121   0  4:44PM ttys004    0:23.54 java -jar sentiment-analysis-web-0.0.1-SNAPSHOT.jar --sa.logic.api.url=http://localhost:5000
+  501  6823  6180   0  5:59PM ttys008    0:00.00 grep java
+Maheshs-MacBook-Pro-2:sa-webapp maheshrajannan$ kill -9 6161
+
+In another case i had to stop nginx..i forgot nginx is running there.
+sudo brew services stop nginx
+
+docker run -d -p 8080:8080 -e SA_LOGIC_API_URL='http://172.17.0.2:5000' maheshrajannan/sentiment-analysis-web-app3
+
+docker run -d -p 80:80 maheshrajannan/sentiment-analysis-frontend3
+
+Second time i got port bind error because i was running sa-logic on 80.
+
+Server/Client socket remember.
+
+Client socket is localhost and Server Socket is the app inside the container.
+
+--
+
+kubernates that comes with Docker has some tweaks, looks like.
+
+For the sake of learnign. let's not use that.
+
+https://codefresh.io/kubernetes-tutorial/local-kubernetes-mac-minikube-vs-docker-desktop/
+
+
+http://192.168.99.103:30086
+is running.
+
+When i do edit and resend on firefox tools it is going to that endpoint and returning message
+
+oh god
+
+i did docker ps and my local webapp container was runnign at localhost:8080
+
+the browser was therefore going to localhost:80
+
+i killed that container and everything is now going to the pod load balancer i want.
+
+TODO:
+
+how to login and see the logs from the pod ?

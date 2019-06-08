@@ -1,0 +1,9 @@
+Time Tracker
+
+11:30 --> 2:00 get the pip example working with python 3.
+
+The nginx folder structure is different, so had to correct it.
+
+The python3 and pip3 packages.
+
+took screen shots and capturing logs.

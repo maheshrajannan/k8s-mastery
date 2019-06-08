@@ -1,0 +1,500 @@
+   77  ls
+   78  ls -lrt
+   79  node app
+   80  clear
+   81  pwd
+   82  pwd
+   83  clear
+   84  ls
+   85  npm install
+   86  ls
+   87  rm -fr node_modules/
+   88  npm install
+   89  clear
+   90  ls
+   91  pwd
+   92  ls
+   93  clear
+   94  ls
+   95  pwd
+   96  ls
+   97  vi README.md 
+   98  vi Readme.markdown 
+   99  vi package.json 
+  100  node app.js 
+  101  npm install
+  102  node app.js 
+  103  npm install
+  104  node app.js 
+  105  clear
+  106  npm install
+  107  ls
+  108  node app.js
+  109  npm install
+  110  node app.js
+  111  npm install
+  112  node app.js
+  113  npm install
+  114  node app.js
+  115  npm install
+  116  node app.js
+  117  npm install
+  118  node app.js
+  119  npm install
+  120  node app.js
+  121  clear
+  122  npm install
+  123  node app.js
+  124  npm install
+  125  node app.js
+  126  npm install
+  127  node app.js
+  128  clear
+  129  npm install
+  130  ls
+  131  rm node_modules/
+  132  rm -fr node_modules/
+  133  npm install
+  134  cd ~/Installers/elasticsearch-
+  135  cd ~/Installers/elasticsearch-5.5.2/
+  136  ls
+  137  vi es.log 
+  138  cd ~
+  139  ls
+  140  pwd
+  141  cd Downloads/
+  142  ls -lrt
+  143  ls -lrt *.zip
+  144  pwd
+  145  cd ~/Downloads/
+  146  ls
+  147  ls -lrt
+  148  ls -lrt *.zip
+  149  pwd
+  150  pwd
+  151  ls
+  152  ./elasticsearch --v
+  153  pwd
+  154  cd ../
+  155  bin/elasticsearch-plugin install file:///~/Downloads/readonlyrest-1.16.19_es5.5.2.zip
+  156  bin/elasticsearch-plugin install file://~/Downloads/readonlyrest-1.16.19_es5.5.2.zip
+  157  bin/elasticsearch-plugin install file:~/Downloads/readonlyrest-1.16.19_es5.5.2.zip
+  158  clear
+  159  clear
+  160  ls
+  161  pw
+  162  pwd
+  163  ls
+  164  cd plugins/
+  165  ls
+  166  ls -lrt
+  167  ls
+  168  pwd
+  169  cd ../
+  170  cd config/
+  171  ls
+  172  cd s ../config/
+  173  ls
+  174  pwd
+  175  cd ../
+  176  ls -lrt
+  177  cd config/
+  178  ls
+  179  lear
+  180  clear
+  181  ls
+  182  ls
+  183  vi elasticsearch.yml 
+  184  pwd
+  185  ls -lrt
+  186  cd scripts/
+  187  ls
+  188  pwd
+  189  cd ../../
+  190  ls
+  191  ./bin/elasticsearch &
+  192  clear
+  193  pwd
+  194  cd config/
+  195  cd ../
+  196  ls -lrt
+  197  cd config/
+  198  ls
+  199  ls -lrt
+  200  cpwd
+  201  pwd
+  202  cd ../
+  203  ls -lrt
+  204  cd config/
+  205  ls -lrt
+  206  vi elasticsearch.yml 
+  207  ls
+  208  clear
+  209  ls
+  210  pwd
+  211  cd ../
+  212  ps -ef | grep elasticsearch
+  213  kill -9 15628
+  214  ps -ef | grep elasticsearch
+  215  clear
+  216  ./bin/elasticsearch-plugin install readonlyrest-1.16.19_es5.5.2.zip
+  217  ./bin/elasticsearch-plugin install file:///Users/maheshrajannan/Downloads/readonlyrest-1.16.19_es5.5.2.zip
+  218  pwd
+  219  ls -lrt
+  220  cd config/
+  221  ls
+  222  cd ../
+  223  pwd
+  224  ls
+  225  cd config/
+  226  ls
+  227  ls -lrt
+  228  cd ../
+  229  ls
+  230  bin/elasticsearch &
+  231  bin/elasticsearch > es.log
+  232  sudo ./bin/elasticsearch-plugin install file:///Users/maheshrajannan/Downloads/readonlyrest-1.16.19_es5.5.2.zip
+  233  cd /Users/maheshrajannan/Installers/elasticsearch-5.5.2/plugins/readonlyrest
+  234  ls
+  235  ls-lrt
+  236   ls -ler
+  237  cd ../
+  238  ls
+  239  cd ../
+  240  ls
+  241  cd config/
+  242  ls
+  243  ls -lrt
+  244  pwd
+  245  ls -lrt
+  246  vi readonlyrest.yml
+  247  cd ../
+  248  ps -ef | grep elastic
+  249  ls
+  250  bin/elasticsearch &
+  251  ps -ef | grep elasticsearch
+  252  kill -9 16751
+  253  vi config/readonlyrest.yml 
+  254  bin/elasticsearch &
+  255  vi config/readonlyrest.yml 
+  256  bin/elasticsearch &
+  257  node -v
+  258  npm -v
+  259  echo $PATH
+  260  which node
+  261  echo $PATH
+  262  cat /etc/paths
+  263  cd /usr/local/bin/
+  264  ls
+  265  clear
+  266  ls -lrt
+  267  ls -lrt node
+  268  ls -lrt npm
+  269  ls
+  270  cd node
+  271  cat /etc/paths
+  272  cp /etc/paths /etc/paths-bck.bck
+  273  sudo cp /etc/paths /etc/paths-bck.bck
+  274  cat /etc/paths-bck.bck 
+  275  sudo vi /etc/paths
+  276  sudo vi /etc/paths
+  277  sudo vi /etc/paths
+  278  clear
+  279  cd /usr/local/bin
+  280  ls
+  281  mv node node-2
+  282  mv npm npm-2
+  283  node
+  284  clear
+  285  pwd
+  286  cd ~
+  287  clear
+  288  node -v
+  289  clear
+  290  sudo vi /etc/paths
+  291  clear
+  292  pwd
+  293  node -v
+  294  cat /etc/paths
+  295  exit
+  296  node -v
+  297  clear
+  298  pwd
+  299  clear
+  300  npm run build
+  301  node -v
+  302  clear
+  303  npm start
+  304  node -v
+  305  npm start
+  306  vi /Users/maheshrajannan/.npm/_logs/2018-07-08T13_42_24_242Z-debug.log
+  307  pwd
+  308  ls
+  309  npm install
+  310  clear
+  311  npm start
+  312  pwd
+  313  ls
+  314  npm install
+  315  npm start
+  316  node -version
+  317  node -v
+  318  clear
+  319  pwd
+  320  grunt -v
+  321  npm install -g grunt t
+  322  npm install -g grunt
+  323  sudo npm install -g grunt
+  324  npm install
+  325  npm start
+  326  clear
+  327  pwd
+  328  exit
+  329  pmset -g
+  330  sudo pmset -b standbydelaylow 60 
+  331  sudo pmset -b standbydelayhigh 60
+  332  sudo pmset -b autopoweroffdelay 60
+  333  vi pmsetg.txt
+  334  pmset -g
+  335  exit
+  336  pmset -g
+  337  sudo pmset -b standbydelaylow 60
+  338  pmset -g
+  339  node -version
+  340  node --version
+  341  pwd
+  342  clear
+  343  npm install
+  344  node app
+  345  pwd
+  346  ls
+  347  rm -fr node_modules
+  348  npm install
+  349  npm i npm
+  350  node app
+  351  npm install
+  352  node app
+  353  pwd
+  354  exit
+  355  npm install util
+  356  npm install util
+  357  npm install
+  358  node app
+  359  node app
+  360  node app
+  361  node app
+  362  node app
+  363  which java
+  364  node app
+  365  clear
+  366  node app
+  367  clear
+  368  node app
+  369  clear
+  370  node app
+  371  clear
+  372  node app
+  373  clear
+  374  node app
+  375  clear
+  376  npm install
+  377  node app
+  378  npm install
+  379  node app
+  380  node app
+  381  clear
+  382  npm install
+  383  node app
+  384  clear
+  385  git status
+  386  pwd
+  387  clear
+  388  git status
+  389  clear
+  390  pwd
+  391  ls
+  392  clear
+  393  npm install
+  394  ls
+  395  clear
+  396  ls
+  397  ls -lrt .env
+  398  vi .env
+  399  cat .env
+  400  clear
+  401  cat env
+  402  ls
+  403  clear
+  404  cat .env
+  405  pwd
+  406  cp .env .env2
+  407  vi .env2
+  408  vi .env2
+  409  clear
+  410  pwd
+  411  ls -lrt .env
+  412  mv .env .env-bck
+  413  mv .env2 .env
+  414  ls -lrt
+  415  clear
+  416  cat .env
+  417  pwd
+  418  clear
+  419  mv .env-bck .env
+  420  cat .env
+  421  clear
+  422  ls
+  423  cat .env
+  424  clear
+  425  npm instal
+  426  clear
+  427  npm install
+  428  ls -lrt node_modules/
+  429  clear
+  430  clear
+  431  npm install
+  432  ls -lrt node_*
+  433  clear
+  434  ls
+  435  ls -lrt
+  436  clear
+  437  ls -lrt
+  438  rm -fr node_modules/
+  439  clear
+  440  ls -lrt
+  441  npm install
+  442  ls -lrt
+  443  node app
+  444  clear
+  445  node app
+  446  node --version
+  447  cd /Users/maheshrajannan/git/nodejs-awesome-polls
+  448  clear
+  449  ls
+  450  rm -fr node_modules
+  451  rm package-lock.json 
+  452  npm install
+  453  node app
+  454  clear
+  455  npm audit fix
+  456  npm audit fix --force
+  457  rm -fr node_modules
+  458  npm install
+  459  node app
+  460  pwd
+  461  ls
+  462  rm -fr node_modules
+  463  rm package-lock.json 
+  464  npm install
+  465  clear
+  466  npm audit fix
+  467  rm -fr node_modules
+  468  npm install
+  469  npm audit
+  470  clear
+  471  npm install pug
+  472  npm install
+  473  node app
+  474  rm -fr node_modules
+  475  npm install
+  476  node app
+  477  npm install
+  478  node app
+  479  npm install
+  480  node app
+  481  node app
+  482  node app
+  483  npm install
+  484  node app
+  485  npm install
+  486  node app
+  487  node app
+  488  cd /Users/maheshrajannan/Mahesh\ Personal/Google\ Drive/Passport\ Wallet/MaheshDocs/Paystubs 
+  489  ls
+  490  vi Readme.txt
+  491  docker run ubuntu /bin/echo 'Hello world'
+  492  docker run --help
+  493  docker run ubuntu /bin/echo 'Hello world'
+  494  docker run --help
+  495  exit
+  496  sudo nginx
+  497  cd /usr/local/share/doc/homebrew
+  498  ls
+  499  clear
+  500  exit
+  501  pwd
+  502  ls
+  503  cd sa-logic/
+  504  clear
+  505  ls
+  506  python -m pip install -r requirements.txt
+  507  cd sa/
+  508  ls
+  509  python -m pip install -r requirements.txt
+  510  python -version
+  511  python --version
+  512  sudo apt-get install python-pip
+  513  python2.7 -m ensurepip --default-pip
+  514  sudo python2.7 -m ensurepip --default-pip
+  515  python -m pip install -r requirements.txt
+  516  python -m textblob.download_corpora
+  517  python -m pip install -r requirements.txt
+  518  brew reinstall python
+  519  echo $PATH
+  520  pip3 install --upgrade pip setuptools wheel
+  521  clear
+  522  python3 -m pip install -r requirements.txt
+  523  python3 -m textblob.download_corpora
+  524  python sentiment_analysis.py
+  525  python3 sentiment_analysis.py
+  526  pwd
+  527  ls
+  528  cd ../
+  529  ls
+  530  vi Dockerfile 
+  531  docker run -d -p 5050:5000 $DOCKER_USER_ID/sentiment-analysis-logic
+  532  docker run -d -p 5050:5000 maheshrajannan/sentiment-analysis-logic
+  533  docker login
+  534  docker login
+  535  docker run -d -p 5050:5000 maheshrajannan/sentiment-analysis-logic
+  536  docker run -d -p 5050:5000 maheshrajannan/sentiment-analysis-logic
+  537  docker push maheshrajannan/sentiment-analysis-logic
+  538  docker login
+  539  docker login
+  540  docker push maheshrajannan/sentiment-analysis-logic
+  541  docker-machine restart
+  542  docker-machine stop
+  543  docker-machine start
+  544  docker push maheshrajannan/sentiment-analysis-logic
+  545  docker build maheshrajannan/sentiment-analysis-logic
+  546  ls
+  547  docker login -u="maheshrajannan"
+  548  docker build maheshrajannan/sentiment-analysis-logic
+  549  docker push maheshrajannan/sentiment-analysis-logic
+  550  unset DOCKER_HOST
+  551  unset DOCKER_TLS_VERIFY
+  552  unset DOCKER_TLS_PATH
+  553  docker ps
+  554  docker push maheshrajannan/sentiment-analysis-logic
+  555  docker build maheshrajannan/sentiment-analysis-logic
+  556  docker push maheshrajannan/sentiment-analysis-logic
+  557  docker
+  558  docker build maheshrajannan/sentiment-analysis-logic
+  559  docker build
+  560  ls
+  561  docker build maheshrajannan/sentiment-analysis-logic
+  562  docker login -u="maheshrajannan"
+  563  docker build maheshrajannan/sentiment-analysis-logic
+  564  docker ps
+  565  docker build maheshrajannan/sentiment-analysis-logic .
+  566  clear
+  567  ls
+  568  docker build -t maheshrajannan/sentiment-analysis-logic .
+  569  docker ps
+  570  docker push maheshrajannan/sentiment-analysis-logic
+  571  docker run -d -p 5050:5000 maheshrajannan/sentiment-analysis-logic
+  572  docker ps
+  573  docker run -d -p 8080:8080 -e SA_LOGIC_API_URL='http://localhost:5000' maheshrajannan/sentiment-analysis-web-app
+  574  cd ../sa-webapp/
+  575  docker build -f Dockerfile -t maheshrajannan/sentiment-analysis-web-app .
+  576  history > ~/Desktop/Python/sa-logic-history.txt

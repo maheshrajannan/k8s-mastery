@@ -1,0 +1,283 @@
+Maheshs-MBP-2:sa maheshrajannan$ python --version
+Python 2.7.10
+Maheshs-MBP-2:sa maheshrajannan$ sudo apt-get install python-pip
+Password:
+sudo: apt-get: command not found
+Maheshs-MBP-2:sa maheshrajannan$ python2.7 -m ensurepip --default-pip
+Ignoring indexes: https://pypi.python.org/simple
+Requirement already satisfied (use --upgrade to upgrade): setuptools in /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python
+Collecting pip
+Installing collected packages: pip
+  Exception:
+  Traceback (most recent call last):
+    File "/var/folders/st/7n88nq1s2dd66svxz90tl3xc0000gn/T/tmpORl1nr/pip-6.1.1-py2.py3-none-any.whl/pip/basecommand.py", line 246, in main
+      status = self.run(options, args)
+    File "/var/folders/st/7n88nq1s2dd66svxz90tl3xc0000gn/T/tmpORl1nr/pip-6.1.1-py2.py3-none-any.whl/pip/commands/install.py", line 352, in run
+      root=options.root_path,
+    File "/var/folders/st/7n88nq1s2dd66svxz90tl3xc0000gn/T/tmpORl1nr/pip-6.1.1-py2.py3-none-any.whl/pip/req/req_set.py", line 693, in install
+      **kwargs
+    File "/var/folders/st/7n88nq1s2dd66svxz90tl3xc0000gn/T/tmpORl1nr/pip-6.1.1-py2.py3-none-any.whl/pip/req/req_install.py", line 817, in install
+      self.move_wheel_files(self.source_dir, root=root)
+    File "/var/folders/st/7n88nq1s2dd66svxz90tl3xc0000gn/T/tmpORl1nr/pip-6.1.1-py2.py3-none-any.whl/pip/req/req_install.py", line 1018, in move_wheel_files
+      isolated=self.isolated,
+    File "/var/folders/st/7n88nq1s2dd66svxz90tl3xc0000gn/T/tmpORl1nr/pip-6.1.1-py2.py3-none-any.whl/pip/wheel.py", line 237, in move_wheel_files
+      clobber(source, lib_dir, True)
+    File "/var/folders/st/7n88nq1s2dd66svxz90tl3xc0000gn/T/tmpORl1nr/pip-6.1.1-py2.py3-none-any.whl/pip/wheel.py", line 208, in clobber
+      os.makedirs(destdir)
+    File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/os.py", line 157, in makedirs
+      mkdir(name, mode)
+  OSError: [Errno 13] Permission denied: '/Library/Python/2.7/site-packages/pip-6.1.1.dist-info'
+
+Maheshs-MBP-2:sa maheshrajannan$ sudo python2.7 -m ensurepip --default-pip
+The directory '/Users/maheshrajannan/Library/Logs/pip' or its parent directory is not owned by the current user and the debug log has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Ignoring indexes: https://pypi.python.org/simple
+The directory '/Users/maheshrajannan/Library/Caches/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Requirement already satisfied (use --upgrade to upgrade): setuptools in /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python
+Collecting pip
+Installing collected packages: pip
+Successfully installed pip-6.1.1
+Maheshs-MBP-2:sa maheshrajannan$ python -m pip install -r requirements.txt
+You are using pip version 6.1.1, however version 19.1.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Collecting Flask==0.12.2 (from -r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/77/32/e3597cb19ffffe724ad4bf0beca4153419918e7fa4ba6a34b04ee4da3371/Flask-0.12.2-py2.py3-none-any.whl (83kB)
+    100% |████████████████████████████████| 86kB 2.9MB/s 
+Collecting textblob==0.15.0 (from -r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/56/6d/ebe0b935eaf1f9f35cdf8446882608fbda4f3bfcc1c3648e50606c7476e7/textblob-0.15.0-py2.py3-none-any.whl (631kB)
+    100% |████████████████████████████████| 634kB 758kB/s 
+Collecting click>=2.0 (from Flask==0.12.2->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/fa/37/45185cb5abbc30d7257104c434fe0b07e5a195a6847506c074527aa599ec/Click-7.0-py2.py3-none-any.whl (81kB)
+    100% |████████████████████████████████| 81kB 1.3MB/s 
+Collecting itsdangerous>=0.21 (from Flask==0.12.2->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/76/ae/44b03b253d6fade317f32c24d100b3b35c2239807046a4c953c7b89fa49e/itsdangerous-1.1.0-py2.py3-none-any.whl
+Collecting Werkzeug>=0.7 (from Flask==0.12.2->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/18/79/84f02539cc181cdbf5ff5a41b9f52cae870b6f632767e43ba6ac70132e92/Werkzeug-0.15.2-py2.py3-none-any.whl (328kB)
+    100% |████████████████████████████████| 331kB 1.3MB/s 
+Collecting Jinja2>=2.4 (from Flask==0.12.2->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/1d/e7/fd8b501e7a6dfe492a433deb7b9d833d39ca74916fa8bc63dd1a4947a671/Jinja2-2.10.1-py2.py3-none-any.whl (124kB)
+    100% |████████████████████████████████| 126kB 1.3MB/s 
+Collecting nltk>=3.1 (from textblob==0.15.0->-r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/73/56/90178929712ce427ebad179f8dc46c8deef4e89d4c853092bee1efd57d05/nltk-3.4.1.zip (3.1MB)
+    100% |████████████████████████████████| 3.1MB 153kB/s 
+    Complete output from command python setup.py egg_info:
+    error in nltk setup command: 'install_requires' must be a string or list of strings containing valid project/version requirement specifiers; Expected version spec in singledispatch; python_version < "3.4" at ; python_version < "3.4"
+    
+    ----------------------------------------
+    Command "python setup.py egg_info" failed with error code 1 in /private/var/folders/st/7n88nq1s2dd66svxz90tl3xc0000gn/T/pip-build-K2HN_D/nltk
+Maheshs-MBP-2:sa maheshrajannan$ python -m textblob.download_corpora
+/usr/bin/python: No module named textblob
+Maheshs-MBP-2:sa maheshrajannan$ python -m pip install -r requirements.txt
+You are using pip version 6.1.1, however version 19.1.1 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+Collecting Flask==0.12.2 (from -r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/77/32/e3597cb19ffffe724ad4bf0beca4153419918e7fa4ba6a34b04ee4da3371/Flask-0.12.2-py2.py3-none-any.whl
+Collecting textblob==0.15.0 (from -r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/56/6d/ebe0b935eaf1f9f35cdf8446882608fbda4f3bfcc1c3648e50606c7476e7/textblob-0.15.0-py2.py3-none-any.whl
+Collecting click>=2.0 (from Flask==0.12.2->-r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/fa/37/45185cb5abbc30d7257104c434fe0b07e5a195a6847506c074527aa599ec/Click-7.0-py2.py3-none-any.whl
+Collecting itsdangerous>=0.21 (from Flask==0.12.2->-r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/76/ae/44b03b253d6fade317f32c24d100b3b35c2239807046a4c953c7b89fa49e/itsdangerous-1.1.0-py2.py3-none-any.whl
+Collecting Werkzeug>=0.7 (from Flask==0.12.2->-r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/18/79/84f02539cc181cdbf5ff5a41b9f52cae870b6f632767e43ba6ac70132e92/Werkzeug-0.15.2-py2.py3-none-any.whl
+Collecting Jinja2>=2.4 (from Flask==0.12.2->-r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/1d/e7/fd8b501e7a6dfe492a433deb7b9d833d39ca74916fa8bc63dd1a4947a671/Jinja2-2.10.1-py2.py3-none-any.whl
+Collecting nltk>=3.1 (from textblob==0.15.0->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/73/56/90178929712ce427ebad179f8dc46c8deef4e89d4c853092bee1efd57d05/nltk-3.4.1.zip
+    Complete output from command python setup.py egg_info:
+    error in nltk setup command: 'install_requires' must be a string or list of strings containing valid project/version requirement specifiers; Expected version spec in singledispatch; python_version < "3.4" at ; python_version < "3.4"
+    
+    ----------------------------------------
+    Command "python setup.py egg_info" failed with error code 1 in /private/var/folders/st/7n88nq1s2dd66svxz90tl3xc0000gn/T/pip-build-nS1Pbu/nltk
+Maheshs-MBP-2:sa maheshrajannan$ brew reinstall python
+==> Reinstalling python 
+==> Installing dependencies for python: gdbm, readline, sqlite and xz
+==> Installing python dependency: gdbm
+==> Downloading https://homebrew.bintray.com/bottles/gdbm-1.18.1.mojave.bottle.1
+######################################################################## 100.0%
+==> Pouring gdbm-1.18.1.mojave.bottle.1.tar.gz
+🍺  /usr/local/Cellar/gdbm/1.18.1: 20 files, 586.8KB
+==> Installing python dependency: readline
+==> Downloading https://homebrew.bintray.com/bottles/readline-8.0.0_1.mojave.bot
+==> Downloading from https://akamai.bintray.com/fa/faab004773e6449dd97971311cb62
+######################################################################## 100.0%
+==> Pouring readline-8.0.0_1.mojave.bottle.tar.gz
+==> Caveats
+readline is keg-only, which means it was not symlinked into /usr/local,
+because macOS provides the BSD libedit library, which shadows libreadline.
+In order to prevent conflicts when programs look for libreadline we are
+defaulting this GNU Readline installation to keg-only.
+
+For compilers to find readline you may need to set:
+  export LDFLAGS="-L/usr/local/opt/readline/lib"
+  export CPPFLAGS="-I/usr/local/opt/readline/include"
+
+==> Summary
+🍺  /usr/local/Cellar/readline/8.0.0_1: 48 files, 1.5MB
+==> Installing python dependency: sqlite
+==> Downloading https://homebrew.bintray.com/bottles/sqlite-3.28.0.mojave.bottle
+==> Downloading from https://akamai.bintray.com/e3/e360850758d2104b4ae9eab8ae579
+######################################################################## 100.0%
+==> Pouring sqlite-3.28.0.mojave.bottle.tar.gz
+==> Caveats
+sqlite is keg-only, which means it was not symlinked into /usr/local,
+because macOS provides an older sqlite3.
+
+If you need to have sqlite first in your PATH run:
+  echo 'export PATH="/usr/local/opt/sqlite/bin:$PATH"' >> ~/.bash_profile
+
+For compilers to find sqlite you may need to set:
+  export LDFLAGS="-L/usr/local/opt/sqlite/lib"
+  export CPPFLAGS="-I/usr/local/opt/sqlite/include"
+
+==> Summary
+🍺  /usr/local/Cellar/sqlite/3.28.0: 11 files, 3.7MB
+==> Installing python dependency: xz
+==> Downloading https://homebrew.bintray.com/bottles/xz-5.2.4.mojave.bottle.tar.
+==> Downloading from https://akamai.bintray.com/01/010667293df282c8bceede3bcd369
+######################################################################## 100.0%
+==> Pouring xz-5.2.4.mojave.bottle.tar.gz
+🍺  /usr/local/Cellar/xz/5.2.4: 92 files, 1MB
+==> Installing python
+==> Downloading https://homebrew.bintray.com/bottles/python-3.7.3.mojave.bottle.
+==> Downloading from https://akamai.bintray.com/25/25e0099852136c4ef1efd221247d0
+######################################################################## 100.0%
+==> Pouring python-3.7.3.mojave.bottle.tar.gz
+==> /usr/local/Cellar/python/3.7.3/bin/python3 -s setup.py --no-user-cfg install
+==> /usr/local/Cellar/python/3.7.3/bin/python3 -s setup.py --no-user-cfg install
+==> /usr/local/Cellar/python/3.7.3/bin/python3 -s setup.py --no-user-cfg install
+==> Caveats
+Python has been installed as
+  /usr/local/bin/python3
+
+Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+`python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+  /usr/local/opt/python/libexec/bin
+
+If you need Homebrew's Python 2.7 run
+  brew install python@2
+
+You can install Python packages with
+  pip3 install <package>
+They will install into the site-package directory
+  /usr/local/lib/python3.7/site-packages
+
+See: https://docs.brew.sh/Homebrew-and-Python
+==> Summary
+🍺  /usr/local/Cellar/python/3.7.3: 3,863 files, 59.8MB
+==> Caveats
+==> readline
+readline is keg-only, which means it was not symlinked into /usr/local,
+because macOS provides the BSD libedit library, which shadows libreadline.
+In order to prevent conflicts when programs look for libreadline we are
+defaulting this GNU Readline installation to keg-only.
+
+For compilers to find readline you may need to set:
+  export LDFLAGS="-L/usr/local/opt/readline/lib"
+  export CPPFLAGS="-I/usr/local/opt/readline/include"
+
+==> sqlite
+sqlite is keg-only, which means it was not symlinked into /usr/local,
+because macOS provides an older sqlite3.
+
+If you need to have sqlite first in your PATH run:
+  echo 'export PATH="/usr/local/opt/sqlite/bin:$PATH"' >> ~/.bash_profile
+
+For compilers to find sqlite you may need to set:
+  export LDFLAGS="-L/usr/local/opt/sqlite/lib"
+  export CPPFLAGS="-I/usr/local/opt/sqlite/include"
+
+==> python
+Python has been installed as
+  /usr/local/bin/python3
+
+Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+`python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+  /usr/local/opt/python/libexec/bin
+
+If you need Homebrew's Python 2.7 run
+  brew install python@2
+
+You can install Python packages with
+  pip3 install <package>
+They will install into the site-package directory
+  /usr/local/lib/python3.7/site-packages
+
+See: https://docs.brew.sh/Homebrew-and-Python
+Maheshs-MBP-2:sa maheshrajannan$ echo $PATH
+/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Commands:/Users/maheshrajannan/Installers/apache-ant-1.9.4/bin:/Users/maheshrajannan/Installers/apache-maven-3.2.5/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/maheshrajannan/node-v8.11.3-darwin-x64/bin:/usr/local/git/bin:/usr/local/bin
+Maheshs-MBP-2:sa maheshrajannan$ pip3 install --upgrade pip setuptools wheel
+Collecting pip
+  Downloading https://files.pythonhosted.org/packages/5c/e0/be401c003291b56efc55aeba6a80ab790d3d4cece2778288d65323009420/pip-19.1.1-py2.py3-none-any.whl (1.4MB)
+    100% |████████████████████████████████| 1.4MB 14.9MB/s 
+Collecting setuptools
+  Downloading https://files.pythonhosted.org/packages/ec/51/f45cea425fd5cb0b0380f5b0f048ebc1da5b417e48d304838c02d6288a1e/setuptools-41.0.1-py2.py3-none-any.whl (575kB)
+    100% |████████████████████████████████| 583kB 8.9MB/s 
+Collecting wheel
+  Downloading https://files.pythonhosted.org/packages/bb/10/44230dd6bf3563b8f227dbf344c908d412ad2ff48066476672f3a72e174e/wheel-0.33.4-py2.py3-none-any.whl
+Installing collected packages: pip, setuptools, wheel
+  Found existing installation: pip 19.0.3
+    Uninstalling pip-19.0.3:
+      Successfully uninstalled pip-19.0.3
+  Found existing installation: setuptools 40.8.0
+    Uninstalling setuptools-40.8.0:
+      Successfully uninstalled setuptools-40.8.0
+  Found existing installation: wheel 0.33.1
+    Uninstalling wheel-0.33.1:
+      Successfully uninstalled wheel-0.33.1
+Successfully installed pip-19.1.1 setuptools-41.0.1 wheel-0.33.4
+Maheshs-MBP-2:sa maheshrajannan$ clear
+
+Maheshs-MBP-2:sa maheshrajannan$ python3 -m pip install -r requirements.txt
+Collecting Flask==0.12.2 (from -r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/77/32/e3597cb19ffffe724ad4bf0beca4153419918e7fa4ba6a34b04ee4da3371/Flask-0.12.2-py2.py3-none-any.whl
+Collecting textblob==0.15.0 (from -r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/56/6d/ebe0b935eaf1f9f35cdf8446882608fbda4f3bfcc1c3648e50606c7476e7/textblob-0.15.0-py2.py3-none-any.whl
+Collecting Werkzeug>=0.7 (from Flask==0.12.2->-r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/18/79/84f02539cc181cdbf5ff5a41b9f52cae870b6f632767e43ba6ac70132e92/Werkzeug-0.15.2-py2.py3-none-any.whl
+Collecting click>=2.0 (from Flask==0.12.2->-r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/fa/37/45185cb5abbc30d7257104c434fe0b07e5a195a6847506c074527aa599ec/Click-7.0-py2.py3-none-any.whl
+Collecting itsdangerous>=0.21 (from Flask==0.12.2->-r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/76/ae/44b03b253d6fade317f32c24d100b3b35c2239807046a4c953c7b89fa49e/itsdangerous-1.1.0-py2.py3-none-any.whl
+Collecting Jinja2>=2.4 (from Flask==0.12.2->-r requirements.txt (line 1))
+  Using cached https://files.pythonhosted.org/packages/1d/e7/fd8b501e7a6dfe492a433deb7b9d833d39ca74916fa8bc63dd1a4947a671/Jinja2-2.10.1-py2.py3-none-any.whl
+Collecting nltk>=3.1 (from textblob==0.15.0->-r requirements.txt (line 2))
+  Using cached https://files.pythonhosted.org/packages/73/56/90178929712ce427ebad179f8dc46c8deef4e89d4c853092bee1efd57d05/nltk-3.4.1.zip
+Collecting MarkupSafe>=0.23 (from Jinja2>=2.4->Flask==0.12.2->-r requirements.txt (line 1))
+  Downloading https://files.pythonhosted.org/packages/ce/c6/f000f1af136ef74e4a95e33785921c73595c5390403f102e9b231b065b7a/MarkupSafe-1.1.1-cp37-cp37m-macosx_10_6_intel.whl
+Collecting six (from nltk>=3.1->textblob==0.15.0->-r requirements.txt (line 2))
+  Downloading https://files.pythonhosted.org/packages/73/fb/00a976f728d0d1fecfe898238ce23f502a721c0ac0ecfedb80e0d88c64e9/six-1.12.0-py2.py3-none-any.whl
+Building wheels for collected packages: nltk
+  Building wheel for nltk (setup.py) ... done
+  Stored in directory: /Users/maheshrajannan/Library/Caches/pip/wheels/97/8a/10/d646015f33c525688e91986c4544c68019b19a473cb33d3b55
+Successfully built nltk
+Installing collected packages: Werkzeug, click, itsdangerous, MarkupSafe, Jinja2, Flask, six, nltk, textblob
+Successfully installed Flask-0.12.2 Jinja2-2.10.1 MarkupSafe-1.1.1 Werkzeug-0.15.2 click-7.0 itsdangerous-1.1.0 nltk-3.4.1 six-1.12.0 textblob-0.15.0
+Maheshs-MBP-2:sa maheshrajannan$ python3 -m textblob.download_corpora
+[nltk_data] Downloading package brown to
+[nltk_data]     /Users/maheshrajannan/nltk_data...
+[nltk_data]   Unzipping corpora/brown.zip.
+[nltk_data] Downloading package punkt to
+[nltk_data]     /Users/maheshrajannan/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /Users/maheshrajannan/nltk_data...
+[nltk_data]   Unzipping corpora/wordnet.zip.
+[nltk_data] Downloading package averaged_perceptron_tagger to
+[nltk_data]     /Users/maheshrajannan/nltk_data...
+[nltk_data]   Unzipping taggers/averaged_perceptron_tagger.zip.
+[nltk_data] Downloading package conll2000 to
+[nltk_data]     /Users/maheshrajannan/nltk_data...
+[nltk_data]   Unzipping corpora/conll2000.zip.
+[nltk_data] Downloading package movie_reviews to
+[nltk_data]     /Users/maheshrajannan/nltk_data...
+[nltk_data]   Unzipping corpora/movie_reviews.zip.
+Finished.
+Maheshs-MBP-2:sa maheshrajannan$ python sentiment_analysis.py
+Traceback (most recent call last):
+  File "sentiment_analysis.py", line 1, in <module>
+    from textblob import TextBlob
+ImportError: No module named textblob
+Maheshs-MBP-2:sa maheshrajannan$ python3 sentiment_analysis.py
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [13/May/2019 13:21:18] "POST /analyse/sentiment HTTP/1.1" 200 -
+127.0.0.1 - - [13/May/2019 13:21:35] "POST /analyse/sentiment HTTP/1.1" 200 -

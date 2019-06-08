@@ -1,0 +1,94 @@
+commands
+
+https://www.sylvaindurand.org/setting-up-a-nginx-web-server-on-macos/
+
+java -jar sentiment-analysis-web-0.0.1-SNAPSHOT.jar --sa.logic.api.url=http://localhost:5000
+
+python2.7 -m ensurepip --default-pip
+
+brew reinstall python
+
+==> python
+Python has been installed as
+  /usr/local/bin/python3
+
+Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+`python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+  /usr/local/opt/python/libexec/bin
+
+If you need Homebrew's Python 2.7 run
+  brew install python@2
+
+You can install Python packages with
+  pip3 install <package>
+They will install into the site-package directory
+  /usr/local/lib/python3.7/site-packages
+
+See: https://docs.brew.sh/Homebrew-and-Python
+Maheshs-MBP-2:sa maheshrajannan$ 
+
+Maheshs-MBP-2:sa-frontend maheshrajannan$ docker login -u="maheshrajannan" -p="MindfulGoals101"
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /Users/maheshrajannan/.docker/config.json.
+
+Removed the osxkeychain from here.
+
+
+unset DOCKER_HOST
+unset DOCKER_TLS_VERIFY
+unset DOCKER_TLS_PATH
+docker ps
+
+Maheshs-MBP-2:sa-frontend maheshrajannan$ unset DOCKER_HOST
+Maheshs-MBP-2:sa-frontend maheshrajannan$ unset DOCKER_TLS_VERIFY
+Maheshs-MBP-2:sa-frontend maheshrajannan$ unset DOCKER_TLS_PATH
+Maheshs-MBP-2:sa-frontend maheshrajannan$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+
+docker tag first-image maheshrajannan/sentiment-analysis-frontend:first-image
+
+
+docker login -u="maheshrajannan"
+
+
+Maheshs-MBP-2:sa-frontend maheshrajannan$ docker push maheshrajannan/sentiment-analysis-frontend
+The push refers to repository [docker.io/maheshrajannan/sentiment-analysis-frontend]
+15a3b0813860: Preparing 
+332fa54c5886: Preparing 
+6ba094226eea: Preparing 
+6270adb5794c: Preparing 
+denied: requested access to the resource is denied
+Maheshs-MBP-2:sa-frontend maheshrajannan$ docker push maheshrajannan/sentiment-analysis-frontendclear
+
+Solution:just docker login ?
+
+Maheshs-MBP-2:sa-frontend maheshrajannan$ docker run -d -p 80:80 maheshrajannan/sentiment-analysis-frontend
+502ac9d875fe0218bce2f60d6b9d505f63aef0f3821758f536a7c293c4f4b341
+docker: Error response from daemon: driver failed programming external connectivity on endpoint blissful_meninsky (2aa17425718fe05bc037debb59b21fdb0738791636be02cb315a4d4173eb4da4): Error starting userland proxy: Bind for 0.0.0.0:80: unexpected error (Failure EADDRINUSE).
+Maheshs-MBP-2:sa-frontend maheshrajannan$ docker run -d -p 90:90 maheshrajannan/sentiment-analysis-frontend
+841c635979f0bf5af62608b5658d47c0539a346a0ec6042664568e3baf5d7c35
+Maheshs-MBP-2:sa-frontend maheshrajannan$ 
+
+
+nginx is already running please stop it.
+
+NOTE:
+
+Error:unable to prepare context
+
+Maheshs-MBP-2:sa-logic maheshrajannan$ docker build -t maheshrajannan/sentiment-analysis-logic .
+Sending build context to Docker daemon  6.144kB
+Step 1/7 : FROM python:3.6.6-alpine
+3.6.6-alpine: Pulling from library/python
+4fe2ade4980c: Pull complete 
+7cf6a1d62200: Pull complete 
+f0d690b9e495: Pull complete 
+fac5d45ad062: Pull complete 
+dd9b067ef6fd: Pull complete 
+Digest: sha256:ac1cf9845670783d36e86f793ad163f479ac2703c497761e5e84646868516ba9
+Status: Downloaded newer image for python:3.6.6-alpine
+
+did not get the network ip address so failed.
+
+
+docker build -f Dockerfile -t $DOCKER_USER_ID/sentiment-analysis-frontend3:minikube .
