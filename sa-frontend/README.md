@@ -12,3 +12,12 @@
 
 ## Pushing the container
 ` $ docker push $DOCKER_USER_ID/sentiment-analysis-frontend `
+
+Local Mac
+
+Nginx
+
+Maheshs-MBP-2:sa-frontend maheshrajannan$ sudo brew services start nginx
+Password:
+Service `nginx` already started, use `brew services restart nginx` to restart.
+Maheshs-MBP-2:sa-frontend maheshrajannan$ 

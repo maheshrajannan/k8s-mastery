@@ -1,0 +1,46 @@
+TODO.txt
+
+Maheshs-MacBook-Pro-2:sa-frontend maheshrajannan$ npm install
+audited 11252 packages in 16.505s
+found 705 vulnerabilities (348 low, 313 moderate, 43 high, 1 critical)
+  run `npm audit fix` to fix them, or `npm audit` for details
+Maheshs-MacBook-Pro-2:sa-frontend maheshrajannan$ 
+
+1) Fix the high and critical, later.
+
+Minikube kubernates vs Docker kubernates set up.
+
+Continuous testing. Deploy to AWS/cloud provider instance and auto-test your app.
+
+You can set a CI/CD pipeline with kubernates and it will autodeploy your app.
+
+hmm...neat.
+
+This app has 3 components.
+
+Each component is docker image.Deploy the docker image i.e container, inside an cloud instance and auto-test it.
+
+After each of 3 components test successfully, Put the 3 containers in one K8 pod(logical application host) and a service infront of it and test it.
+
+---
+Time Track
+Woke up 7:20,wash clean.
+
+@ 7:45
+Now 8:30
+
+Now 8:40...no more FB
+
+1:10
+
+studied, then 10 minutes FB.
+Now, 
+1:40
+
+Finished Lunch 2:37 PM
+
+Worked till 3:20
+<-- Entertainment.
+Now time 3:57
+20 minutes with Daughter.
+
