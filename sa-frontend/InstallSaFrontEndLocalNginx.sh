@@ -1,7 +1,8 @@
 #deployToLocalNginx.sh
 #Run it as sh deployToLocal.sh > deployToLocal.log &
-
-sudo brew services stop nginx
+#echo <password> | sudo -S <command>
+echo $my_pass | sudo -S sudo brew services stop nginx
+#sudo brew services stop nginx
 npm run build
 TESTDATE=`date +%b-%d-%y_%I_%M_%S_%p`
 NGINX_HOME="/usr/local/opt/nginx"
@@ -26,7 +27,8 @@ ls -lrt $CURRENT/../Backups/NGINX-HTML_$TESTDATE.zip
 cd $CURRENT
 
 cp -vr build/* $NGINX_HOME/html
-sudo brew services start nginx
+echo $my_pass | sudo -S sudo brew services start nginx
+#sudo brew services start nginx
 
 echo "Started nginx"
 
@@ -34,4 +36,5 @@ ps -ef | grep nginx
 
 echo "Opening the sa-frontend"
 
+open -a "Google Chrome" --args --incognito "http://localhost:80"
 open -a "Google Chrome" --args --incognito "http://localhost:80"
