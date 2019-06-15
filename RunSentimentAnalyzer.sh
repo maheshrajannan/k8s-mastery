@@ -1,7 +1,6 @@
 #RunSentimentAnalyzer.sh
 CURRENT_DIR=`pwd`
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%S_%p`
-
 mkdir logs/$CURRENT_DATE
 mv logs/*.log logs/$CURRENT_DATE/
 echo "Starting sa-logic"

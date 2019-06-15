@@ -1,7 +1,8 @@
 #InstallSaWebAppLocally.sh
 # find and kill it.
 # INFO: It also greps itself and says cannot kill, so that can be ignored.
-ps ax | grep sentiment-analysis-web | cut -f1 -d" " - | xargs kill -9
+echo "InstallSaWebAppLocally"+ `date`
+sh StopSaWebAppLocally.sh
 which mvn
 mvn --version
 mvn clean install

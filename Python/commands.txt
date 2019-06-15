@@ -1,0 +1,5 @@
+docker build -f Dockerfile -t maheshrajannan/sentiment-analysis-frontend3 .
+
+docker pull maheshrajannan/sentiment-analysis-frontend3
+
+docker push maheshrajannan/sentiment-analysis-frontend3
