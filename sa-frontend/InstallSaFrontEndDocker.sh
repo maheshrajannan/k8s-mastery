@@ -1,40 +1,23 @@
-#deployToLocalNginx.sh
-#Run it as sh deployToLocal.sh > deployToLocal.log &
-#echo <password> | sudo -S <command>
-echo "SaFrontEndLocalNginx:"+ `date`
+unset DOCKER_HOST
+unset DOCKER_TLS_VERIFY
+unset DOCKER_TLS_PATH
 sh StopSaFrontEndLocalNginx.sh
-#sudo brew services stop nginx
-npm run build
-TESTDATE=`date +%b-%d-%y_%I_%M_%S_%p`
-NGINX_HOME="/usr/local/opt/nginx"
-CURRENT=`pwd`
-echo $TESTDATE 
-echo $NGINX_HOME
-
-#Backup what's there.
-#tar -cvf $NGINX_HOME/html html.tar
-#mv html.tar 
-
-#Copy to /usr/local/opt/nginx/html
-
-cd $NGINX_HOME
-#zip ../ReportingProject_$TESTDATE ReportingProject -r . -x "*/node_modules/*"
-
-zip $CURRENT/../Backups/NGINX-HTML_$TESTDATE html -r
-#TODO: upload backups to nexus ?
-
-ls -lrt $CURRENT/../Backups/NGINX-HTML_$TESTDATE.zip
-
-cd $CURRENT
-
-cp -vr build/* $NGINX_HOME/html
-echo $my_pass | sudo -S sudo brew services start nginx
-#sudo brew services start nginx
-
-echo "Started nginx"
-
-ps -ef | grep nginx
-
+# To stop all running containers use the docker container stop command 
+# followed by a list of all containers IDs.
+docker container stop $(docker container ls -aq)
+# Once all containers are stopped you can remove them using the 
+# docker container stop command followed by the containers ID list.
+docker container rm $(docker container ls -aq)
+docker container ls -a
+docker container prune
+docker container ls -a
+docker build -f Dockerfile -t $DOCKER_USER_ID/sentiment-analysis-frontend .
+docker container ls -a
+#https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/
+docker push $DOCKER_USER_ID/sentiment-analysis-frontend
+docker pull $DOCKER_USER_ID/sentiment-analysis-frontend
+docker run -d -p 80:80 $DOCKER_USER_ID/sentiment-analysis-frontend
+docker container ls -a
 echo "Opening the sa-frontend"
 
 open -a "Google Chrome" --args --incognito "http://localhost:80"
