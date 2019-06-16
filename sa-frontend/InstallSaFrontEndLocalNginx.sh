@@ -3,6 +3,7 @@
 #echo <password> | sudo -S <command>
 echo "SaFrontEndLocalNginx:"+ `date`
 sh StopSaFrontEndLocalNginx.sh
+sh clearNode.sh
 #sudo brew services stop nginx
 npm run build
 TESTDATE=`date +%b-%d-%y_%I_%M_%S_%p`
