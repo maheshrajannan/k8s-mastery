@@ -1,0 +1,2 @@
+#Loginto the last successful container to check.
+docker run --rm -it 7690234f65d0 /bin/bash
