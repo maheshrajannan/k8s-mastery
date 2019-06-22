@@ -1,2 +1,48 @@
 #Loginto the last successful container to check.
-docker run --rm -it 7690234f65d0 /bin/bash
+# docker run --rm -it 7690234f65d0 /bin/bash
+# docker build -f CompleteDockerfile -t maheshrajannan/sentiment-analysis-frontend .
+# TODO: stretch goal.
+# https://github.com/emmyyusufu/sample-nodejs-app/blob/master/Dockerfile
+# Tried it halfway through then left.
+# https://mherman.org/blog/dockerizing-a-react-app/
+# ---
+# > react-scripts build
+
+# Could not find a required file.
+#   Name: index.html
+#   Searched in: /app/public
+# npm ERR! code ELIFECYCLE
+# npm ERR! errno 1
+# npm ERR! salogic-front@0.1.0 build: `react-scripts build`
+# npm ERR! Exit status 1
+# npm ERR! 
+# npm ERR! Failed at the salogic-front@0.1.0 build script.
+# npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+# npm ERR! A complete log of this run can be found in:
+# npm ERR!     /root/.npm/_logs/2019-06-16T17_04_19_455Z-debug.log
+# The command '/bin/sh -c npm run build' returned a non-zero code: 1
+# Maheshs-MBP-2:sa-frontend maheshrajannan$
+
+# Login with bash, that requires installing bash.
+# docker run --rm -it 7690234f65d0 /bin/bas
+
+FROM node:10.14.2-alpine as builder
+RUN apk update && apk add bash
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json /app/package.json
+RUN npm install --silent
+COPY . /app
+RUN pwd
+RUN ls -lrt
+RUN ls -lrt build
+#Failing with error index.html not found.
+RUN npm install react-scripts -g --silent
+RUN npm run build
+
+# production environment
+FROM nginx:1.16.0-alpine
+COPY --from=builder /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
