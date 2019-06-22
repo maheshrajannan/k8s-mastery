@@ -25,7 +25,7 @@
 # Maheshs-MBP-2:sa-frontend maheshrajannan$
 
 # Login with bash, that requires installing bash.
-# docker run --rm -it 7690234f65d0 /bin/bas
+# docker run --rm -it 7690234f65d0 /bin/bash
 
 FROM node:10.14.2-alpine as builder
 RUN apk update && apk add bash

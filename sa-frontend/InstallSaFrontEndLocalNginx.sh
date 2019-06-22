@@ -4,19 +4,18 @@
 echo "SaFrontEndLocalNginx:"+ `date`
 sh StopSaFrontEndLocalNginx.sh
 sh clearNode.sh
-#sudo brew services stop nginx
-npm run build
 TESTDATE=`date +%b-%d-%y_%I_%M_%S_%p`
+CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
 NGINX_HOME="/usr/local/opt/nginx"
 CURRENT=`pwd`
 echo $TESTDATE 
 echo $NGINX_HOME
 
-#Backup what's there.
-#tar -cvf $NGINX_HOME/html html.tar
-#mv html.tar 
+sed -ie 's/mode/local-nginx/g' public/index.html
+sed -ie 's/current_time/'$CURRENT_DATE'/g' public/index.html
 
-#Copy to /usr/local/opt/nginx/html
+cat public/index.html
+npm run build
 
 cd $NGINX_HOME
 #zip ../ReportingProject_$TESTDATE ReportingProject -r . -x "*/node_modules/*"
@@ -34,7 +33,13 @@ echo $my_pass | sudo -S sudo brew services start nginx
 
 echo "Started nginx"
 
-ps -ef | grep nginx
+ps -ef | grep nginx &
+
+sed -ie 's/local-nginx/mode/g' public/index.html
+echo "Replacing :"$CURRENT_DATE" With current_time"
+sed -ie 's/'$CURRENT_DATE'/current_time/g' public/index.html
+
+cat public/index.html
 
 echo "Opening the sa-frontend"
 
