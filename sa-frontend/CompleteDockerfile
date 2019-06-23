@@ -1,7 +1,7 @@
 #Loginto the last successful container to check.
 # docker run --rm -it 7690234f65d0 /bin/bash
 # docker build -f CompleteDockerfile -t maheshrajannan/sentiment-analysis-frontend .
-# TODO: stretch goal.
+# DONE: stretch goal.
 # https://github.com/emmyyusufu/sample-nodejs-app/blob/master/Dockerfile
 # Tried it halfway through then left.
 # https://mherman.org/blog/dockerizing-a-react-app/
