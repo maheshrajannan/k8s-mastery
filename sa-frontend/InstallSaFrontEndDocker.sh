@@ -8,15 +8,21 @@ sh StopSaFrontEndLocalNginx.sh
 sh clearNode.sh
 #sudo brew services stop nginx
 #TODO replace time with date and mode with docker
+echo "Replacing time"
 sed -ie 's/mode/docker/g' public/index.html
 sed -ie 's/current_time/'$CURRENT_DATE'/g' public/index.html
+cat public/index.html
+echo "Running build"
 npm run build
 #https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/
+echo "building docker image"
+docker build -f Dockerfile -t $DOCKER_USER_ID/sentiment-analysis-frontend .
 docker push $DOCKER_USER_ID/sentiment-analysis-frontend
 docker pull $DOCKER_USER_ID/sentiment-analysis-frontend
 sed -ie 's/docker/mode/g' public/index.html
 echo "Replacing :"$CURRENT_DATE" With current_time"
 sed -ie 's/'$CURRENT_DATE'/current_time/g' public/index.html
+cat public/index.html
 docker run -d -p 80:80 $DOCKER_USER_ID/sentiment-analysis-frontend
 echo "List of containers running now"
 docker container ls -a

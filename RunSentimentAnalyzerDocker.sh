@@ -5,17 +5,20 @@ mkdir logs/$CURRENT_DATE
 mv logs/*.log logs/$CURRENT_DATE/
 echo "Starting sa-logic"
 cd sa-logic
-sh InstallSaLogicDocker.sh > ../logs/sa-logic.log &
+sh InstallSaLogicDocker.sh > ../logs/sa-logic.log
+#sh InstallSaLogicDocker.sh
 echo "Started sa-logic. Do tail -f logs/sa-logic.log from "+$CURRENT_DIR
 #open -a Terminal $CURRENT_DIR/logs
 echo "Starting sa-webapp"
 cd ../sa-webapp
-sh InstallSaWebAppDocker.sh > ../logs/sa-webapp.log &
+sh InstallSaWebAppDocker.sh > ../logs/sa-webapp.log
+#sh InstallSaWebAppDocker.sh
 #open -a Terminal $CURRENT_DIR/logs
 echo "Started sa-webapp. Do tail -f logs/sa-webapp.log from "+$CURRENT_DIR
 echo "Starting sa-frontend"
 cd ../sa-frontend
-sh InstallSaFrontEndDocker.sh > ../logs/sa-frontend.log &
+sh InstallSaFrontEndDocker.sh > ../logs/sa-frontend.log
+#sh InstallSaFrontEndDocker.sh
 echo "Started sa-frontend. Do tail -f logs/sa-frontend.log from "+$CURRENT_DIR
 #open -a Terminal $CURRENT_DIR/logs
 cd ../

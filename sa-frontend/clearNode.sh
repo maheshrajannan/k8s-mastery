@@ -1,4 +1,4 @@
-sh "clearNode:"+ `date`
+echo "clearNode:"+ `date`
 node --version
 npm --version
 rm -fr ./node-modules
