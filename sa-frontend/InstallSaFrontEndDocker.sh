@@ -7,7 +7,7 @@ sh StopSaFrontendDocker.sh
 sh StopSaFrontEndLocalNginx.sh
 sh clearNode.sh
 #sudo brew services stop nginx
-#TODO replace time with date and mode with docker
+#DONE replace time with date and mode with docker
 echo "Replacing time"
 sed -ie 's/mode/docker/g' public/index.html
 sed -ie 's/current_time/'$CURRENT_DATE'/g' public/index.html
