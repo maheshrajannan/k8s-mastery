@@ -1,6 +1,9 @@
 #StopAllContainers.sh
 # To stop all running containers use the docker container stop command 
 # followed by a list of all containers IDs.
+unset DOCKER_HOST
+unset DOCKER_TLS_VERIFY
+unset DOCKER_TLS_PATH
 echo "Listing All Containers:"
 docker container ls -a
 docker container stop $(docker container ls -aq)

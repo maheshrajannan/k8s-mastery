@@ -3,20 +3,20 @@ kind: Deployment                                          # 1
 metadata:
   name: sa-frontend
 spec:
-  replicas: 1                                             # 2
+  replicas: 2                                             # 2
   minReadySeconds: 15
   strategy:
     type: RollingUpdate                                   # 3
     rollingUpdate: 
       maxUnavailable: 1                                   # 4
-      maxSurge: 0                                         # 5
+      maxSurge: 1                                         # 5
   template:
     metadata:
       labels:
         app: sa-frontend                                  # 6
     spec:
       containers:
-        - image: maheshrajannan/sentiment-analysis-frontend3:minikube3
+        - image: maheshrajannan/sentiment-analysis-frontend:minikube
           imagePullPolicy: Always                         # 7
           name: sa-frontend
           ports:

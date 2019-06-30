@@ -1,4 +1,7 @@
 #InstallSaWebAppDocker.sh
+unset DOCKER_HOST
+unset DOCKER_TLS_VERIFY
+unset DOCKER_TLS_PATH
 echo "InstallSaWebAppDocker at" `date`
 SA_LOGIC_CONTAINER_IP=`docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker container ls -f ancestor=maheshrajannan/sentiment-analysis-logic -aq)`
 echo "SA_LOGIC_CONTAINER_IP:" $SA_LOGIC_CONTAINER_IP
