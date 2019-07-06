@@ -1,4 +1,12 @@
 #kubernatesDeployments.sh
+echo '1/20: Is Minikube running ?'
+minikube status
+
+echo '2/20: Rest Docker to prevent connection error'
+unset DOCKER_HOST
+unset DOCKER_TLS_VERIFY
+unset DOCKER_TLS_PATH
+
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
 kubectl get deployments
 kubectl delete deployment sa-frontend

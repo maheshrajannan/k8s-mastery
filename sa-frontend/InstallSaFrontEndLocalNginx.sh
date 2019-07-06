@@ -8,11 +8,21 @@ TESTDATE=`date +%b-%d-%y_%I_%M_%S_%p`
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
 NGINX_HOME="/usr/local/opt/nginx"
 CURRENT=`pwd`
+
+new_values="localhost:8080"
+old_values=`cat ../oldValues.txt`
+echo $new_values > ../oldValues.txt
+
 echo $TESTDATE 
 echo $NGINX_HOME
 
 sed -ie 's/mode/local-nginx/g' public/index.html
 sed -ie 's/current_time/'$CURRENT_DATE'/g' public/index.html
+
+echo "Replacing-"$old_values"-with-"$new_values"-src/App.js"
+sed -ie 's/'$old_values'/'$new_values'/g' src/App.js
+cat src/App.js
+
 
 cat public/index.html
 npm run build
