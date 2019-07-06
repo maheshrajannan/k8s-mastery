@@ -11,6 +11,15 @@ sh clearNode.sh
 echo "Replacing time"
 sed -ie 's/mode/docker/g' public/index.html
 sed -ie 's/current_time/'$CURRENT_DATE'/g' public/index.html
+
+new_values="localhost:8080"
+old_values=`cat ../oldValues.txt`
+echo $new_values > ../oldValues.txt
+
+echo "Replacing-"$old_values"-with-"$new_values"-src/App.js"
+sed -ie 's/'$old_values'/'$new_values'/g' src/App.js
+cat src/App.js
+
 cat public/index.html
 echo "Running build"
 npm run build
