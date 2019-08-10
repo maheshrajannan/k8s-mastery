@@ -1,3 +1,4 @@
+echo "Please ensure you are logged in to docker / docker desktop"
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH

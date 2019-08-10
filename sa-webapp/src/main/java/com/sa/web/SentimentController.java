@@ -16,11 +16,20 @@ public class SentimentController {
     @PostMapping("/sentiment")
     public SentimentDto sentimentAnalysis(@RequestBody SentenceDto sentenceDto) {
         RestTemplate restTemplate = new RestTemplate();
-        System.out.println("[Mahesh] the saLogicApiUrl is :"+saLogicApiUrl);
+        SentimentDto sentimentDto = null;
+        System.out.println("[Mahesh] Passing sentenceDto"+
+            sentenceDto
+            +" to the saLogicApiUrl :"+saLogicApiUrl);
 
-        return restTemplate.postForEntity(saLogicApiUrl + "/analyse/sentiment",
+        sentimentDto = restTemplate.postForEntity(saLogicApiUrl + "/analyse/sentiment",
                 sentenceDto, SentimentDto.class)
                 .getBody();
+
+        System.out.println("[Mahesh] Returning sentimentDto"+
+            sentimentDto
+            +" from the saLogicApiUrl :"+saLogicApiUrl);
+
+        return sentimentDto;
     }
 
     @GetMapping("/testHealth")

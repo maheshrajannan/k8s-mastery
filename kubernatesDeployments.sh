@@ -8,6 +8,7 @@ unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
 
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
+echo "Starting At "$CURRENT_DATE
 kubectl get deployments
 kubectl delete deployment sa-frontend
 kubectl delete deployment sa-logic
@@ -41,6 +42,8 @@ minikube service list
 new_values=`minikube service sa-web-app-lb --url| cut -d "/" -f 3-`
 
 old_values=`cat oldValues.txt`
+echo "Old Values Are "$old_values
+echo "New Values Are "$new_values
 echo $new_values > oldValues.txt
 
 cd sa-frontend
@@ -64,7 +67,7 @@ docker build -f Dockerfile -t $DOCKER_USER_ID/sentiment-analysis-frontend:miniku
 docker push $DOCKER_USER_ID/sentiment-analysis-frontend:minikube
 
 sed -ie 's/kubernatesDeployments/mode/g' public/index.html
-echo "Replacing :"$CURRENT_DATE" With current_time"
+echo "Restoring :"$CURRENT_DATE" With current_time"
 sed -ie 's/'$CURRENT_DATE'/current_time/g' public/index.html
 cat public/index.html
 
