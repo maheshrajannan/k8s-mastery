@@ -9,13 +9,12 @@ def analyse_sentiment():
     sentence = request.get_json()['sentence']
     print('sentence is:',sentence)
     polarity = TextBlob(sentence).sentences[0].polarity
-    es_blob = TextBlob(sentence).translate(to='es')
+    es_blob = TextBlob(sentence).translate(to='zh-CN')
     return jsonify(
         sentence=sentence,
         spanishTranslation="{0}".format(es_blob),
         polarity=polarity
     )
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
