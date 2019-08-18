@@ -5,6 +5,7 @@ class Polarity extends Component {
 
     propTypes = {
         sentence: PropTypes.string.isRequired,
+        spanishTranslation: PropTypes.string.isRequired,
         polarity: PropTypes.number.isRequired
     };
 
@@ -16,7 +17,7 @@ class Polarity extends Component {
             padding: '15px'
         };
 
-        return <div style={textColor}>"{this.props.sentence}" has polarity of {this.props.polarity} </div>
+        return <div style={textColor}>"{this.props.sentence}" has polarity of {this.props.polarity} and translated as {this.props.spanishTranslation}</div>
     }
 }
 

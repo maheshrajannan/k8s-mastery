@@ -15,13 +15,14 @@ class App extends Component {
         super(props);
         this.state = {
             sentence: '',
+            spanishTranslation: '',
             polarity: undefined
         };
     };
 
     analyzeSentence() {
-        console.log("Contacting http://localhost:8080");
-        fetch('http://localhost:8080/sentiment', {
+        console.log("Contacting http://192.168.99.103:31992");
+        fetch('http://192.168.99.103:31992/sentiment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,7 +41,7 @@ class App extends Component {
 
     render() {
         const polarityComponent = this.state.polarity !== undefined ?
-            <Polarity sentence={this.state.sentence} polarity={this.state.polarity}/> :
+            <Polarity sentence={this.state.sentence} polarity={this.state.polarity} spanishTranslation ={this.state.spanishTranslation}/> :
             null;
 
         return (

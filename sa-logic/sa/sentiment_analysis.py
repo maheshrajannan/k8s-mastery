@@ -12,7 +12,7 @@ def analyse_sentiment():
     es_blob = TextBlob(sentence).translate(to='es')
     return jsonify(
         sentence=sentence,
-        spanishTranslation=es_blob,
+        spanishTranslation="{0}".format(es_blob),
         polarity=polarity
     )
 

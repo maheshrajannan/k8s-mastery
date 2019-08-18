@@ -15,6 +15,7 @@ class App extends Component {
         super(props);
         this.state = {
             sentence: '',
+            spanishTranslation: '',
             polarity: undefined
         };
     };
@@ -40,7 +41,7 @@ class App extends Component {
 
     render() {
         const polarityComponent = this.state.polarity !== undefined ?
-            <Polarity sentence={this.state.sentence} polarity={this.state.polarity}/> :
+            <Polarity sentence={this.state.sentence} polarity={this.state.polarity} spanishTranslation ={this.state.spanishTranslation}/> :
             null;
 
         return (

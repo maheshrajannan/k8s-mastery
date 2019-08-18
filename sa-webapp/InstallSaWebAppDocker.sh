@@ -11,6 +11,8 @@ sh StopSaWebAppLocally.sh
 sh StopSaWebAppDocker.sh
 echo "Building sentiment-analysis-web-app:"
 docker build -f Dockerfile -t maheshrajannan/sentiment-analysis-web-app .
+echo "Pushing sentiment-analysis-web-app:"
+docker push maheshrajannan/sentiment-analysis-frontend
 echo "Running sentiment-analysis-web-app:"
 docker run -d -p 8080:8080 -e SA_LOGIC_API_URL=$SA_LOGIC_API_URL maheshrajannan/sentiment-analysis-web-app
 sleep 5
