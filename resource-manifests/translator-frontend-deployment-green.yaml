@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: sa-frontend
+  name: translator-frontend
 spec:
   replicas: 2
   minReadySeconds: 15
@@ -13,11 +13,11 @@ spec:
   template:
     metadata:
       labels:
-        app: sa-frontend
+        app: translator-frontend
     spec:
       containers:
-        - image: maheshrajannan/sentiment-analysis-frontend:green
+        - image: maheshrajannan/translator-frontend:green
           imagePullPolicy: Always
-          name: sa-frontend
+          name: translator-frontend
           ports:
             - containerPort: 80

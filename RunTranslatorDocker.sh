@@ -16,10 +16,10 @@ sh InstallSaWebAppDocker.sh > ../logs/sa-webapp.log
 #open -a Terminal $CURRENT_DIR/logs
 echo "Started sa-webapp. Do tail -f logs/sa-webapp.log from "+$CURRENT_DIR
 echo "Starting sa-frontend"
-cd ../sa-frontend
-sh InstallSaFrontEndDocker.sh > ../logs/sa-frontend.log
+cd ../translator-frontend
+sh InstallTranslatorFrontEndDocker.sh > ../logs/translator-frontend.log
 #sh InstallSaFrontEndDocker.sh
-echo "Started sa-frontend. Do tail -f logs/sa-frontend.log from "+$CURRENT_DIR
+echo "Started translator-frontend. Do tail -f logs/translator-frontend.log from "+$CURRENT_DIR
 #open -a Terminal $CURRENT_DIR/logs
 cd ../
 pwd

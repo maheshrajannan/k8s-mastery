@@ -1,8 +1,8 @@
 #deployToLocalNginx.sh
 #Run it as sh deployToLocal.sh > deployToLocal.log &
 #echo <password> | sudo -S <command>
-echo "SaFrontEndLocalNginx:"+ `date`
-sh StopSaFrontEndLocalNginx.sh
+echo "TranslatorFrontendLocalNginx:"+ `date`
+sh StopTranslatorFrontendLocalNginx.sh
 sh clearNode.sh
 TESTDATE=`date +%b-%d-%y_%I_%M_%S_%p`
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
@@ -51,7 +51,7 @@ sed -ie 's/'$CURRENT_DATE'/current_time/g' public/index.html
 
 cat public/index.html
 
-echo "Opening the sa-frontend"
+echo "Opening the translator-frontend"
 
 open -a "Google Chrome" --args --incognito "http://localhost:80"
 sleep 10

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: translator-frontend2
+  labels:
+    app: translator-frontend
+spec:
+  containers:
+    - image: maheshrajannan/translator-frontend 
+      name: translator-frontend
+      ports:
+        - containerPort: 80

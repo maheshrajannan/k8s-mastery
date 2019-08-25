@@ -3,9 +3,9 @@
 
 CURRENT_DIR=`pwd`
 echo "Stopping 3 components"
-cd sa-frontend
-sh StopSaFrontEndLocalNginx.sh >> ../logs/sa-frontend.log
-echo "Stopped sa-frontend. Do tail -f logs/sa-frontend.log from "+$CURRENT_DIR
+cd translator-frontend
+sh StopTranslatorFrontendLocalNginx.sh >> ../logs/translator-frontend.log
+echo "Stopped translator-frontend. Do tail -f logs/translator-frontend.log from "+$CURRENT_DIR
 cd ../sa-logic
 sh StopSaLogicLocally.sh >> ../logs/sa-logic.log
 echo "Stopped sa-logic. Do tail -f logs/sa-logic.log from "+$CURRENT_DIR

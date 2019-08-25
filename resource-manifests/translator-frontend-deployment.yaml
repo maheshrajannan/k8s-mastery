@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment                                          # 1
 metadata:
-  name: sa-frontend
+  name: translator-frontend
 spec:
   replicas: 2                                             # 2
   minReadySeconds: 15
@@ -13,10 +13,10 @@ spec:
   template:
     metadata:
       labels:
-        app: sa-frontend                                  # 6
+        app: translator-frontend                                  # 6
     spec:
       containers:
-        - image: maheshrajannan/sentiment-analysis-frontend:minikube
+        - image: maheshrajannan/translator-frontend:minikube
           imagePullPolicy: Always                         # 7
           name: sa-frontend
           ports:
