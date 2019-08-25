@@ -1,6 +1,6 @@
 # Translator Frontend ignored files
 node_modules/
-**/translator-frontend/build/
+build/
 
 # SA Logic ignored files
 venv/
