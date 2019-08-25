@@ -15,4 +15,5 @@ target/
 *.iml
 *.log
 Backups/*.zip
-translator-frontend/public/index.htmle
+**/**/*.htmle
+**/**/*.jse
