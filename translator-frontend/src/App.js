@@ -21,8 +21,8 @@ class App extends Component {
     };
 
     analyzeSentence() {
-        console.log("Contacting http://192.168.99.103:32532");
-        fetch('http://192.168.99.103:32532/sentiment', {
+        console.log("Contacting 34.68.58.241:80");
+        fetch('http://34.68.58.241:80/sentiment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -49,9 +49,9 @@ class App extends Component {
                 <div className="centerize">
                     <Paper zDepth={1} className="content">
                         <h2>Translator</h2>
-                        <TextField ref={ref => this.textField = ref} onKeyUp={this.onEnterPress.bind(this)}
+                        <TextField id="yourSentenceId" ref={ref => this.textField = ref} onKeyUp={this.onEnterPress.bind(this)}
                                    hintText="Type your sentence."/>
-                        <RaisedButton  label="Send" style={style} onClick={this.analyzeSentence.bind(this)}/>
+                        <RaisedButton id="yourSentenceSendId" label="Send" style={style} onClick={this.analyzeSentence.bind(this)}/>
                         {polarityComponent}
                     </Paper>
                 </div>

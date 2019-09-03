@@ -4,6 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="#000000">
+  <!-- TODO: Find a correct way to disable cache-->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" >
+  <meta http-equiv="Pragma" content="no-cache" >
+  <meta http-equiv="Expires" content="0" >
   <!--
     manifest.json provides metadata used when your web app is added to the
     homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
@@ -22,12 +26,12 @@
   -->
   <title>Sentiment Analysis</title>
 </head>
-<body>
+<body onunload="">
 <noscript>
   You need to enable JavaScript to run this app.
 </noscript>
 <div id="root"></div>
- from {mode} {current_time}
+ <h1 id="modeTimeId"> from {mode} {current_time} </h1>
 <!--
   This HTML file is a template.
   If you open it directly in the browser, you will see an empty page.
