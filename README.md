@@ -22,23 +22,7 @@ Maheshs-MacBook-Pro-2:resource-manifests maheshrajannan$ minikube service list
 |-------------|----------------------|-----------------------------|
 Maheshs-MacBook-Pro-2:resource-manifests maheshrajannan$ 
 
+sudo chown -R maheshrajannan:staff bin
 
 Time tracking
-
-7:15 till 7:55 online
-
-...
-
-10:30 to 11, Tea, Rithika.
-
-11:00 to 11:30 , music, wasted.
-
-11:30 to 12:00 read
-
-12:00 to 12:20 wasted.
-
-I could have exercised each of these break..shorter more productive and healthy.
-
-Till 12:50 worked.
-
-Now time 1:25
+maheshrajannan

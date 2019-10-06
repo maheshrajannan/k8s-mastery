@@ -8,7 +8,7 @@ curl 'http://104.197.252.122:80/sentiment' -X OPTIONS -H 'Access-Control-Request
 curl 'http://104.197.252.122:80/sentiment' -X POST -H 'Access-Control-Request-Method: POST' -H 'Origin: http://35.202.184.142' -H 'Referer: http://35.202.184.142/' -H 'User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Mobile Safari/537.36' -H 'Access-Control-Request-Headers: content-type'
 
 Maheshs-MBP-2:Translator-k8s maheshrajannan$ kubectl get service sa-web-app-lb --output=jsonpath='{.spec.ports[0].port}'
-80Maheshs-MBP-2:Translator-k8s maheshrajannankubectl get service sa-web-app-lb --output=jsonpath='{.status.loadBalancer.ingress[0].ip}'
+80Maheshs-MBP-2:Translator-k8s maheshrajannan$ kubectl get service sa-web-app-lb --output=jsonpath='{.status.loadBalancer.ingress[0].ip}'
 104.197.252.122Maheshs-MBP-2:Translator-k8s maheshrajannan$ 
 
 

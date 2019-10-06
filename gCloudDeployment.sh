@@ -1,6 +1,7 @@
-#kubernatesDeployments.sh
+# I referred the guestbook application and microservices 
+# to find out how those are initialized.
 echo '1/20: Is glcoud initialized'
-gcloud container clusters delete translator
+sh deletegCloudDeployments.sh
 gcloud container clusters create translator --num-nodes=5
 
 echo '2/20: Rest Docker to prevent connection error'
@@ -57,7 +58,7 @@ echo $new_values > oldValues.txt
 
 cd translator-frontend
 echo "Replacing time"
-sed -ie 's/mode/kubernatesDeployments/g' public/index.html
+sed -ie 's/mode/gCloudK8s/g' public/index.html
 sed -ie 's/current_time/'$CURRENT_DATE'/g' public/index.html
 cat public/index.html
 echo "Running build"
@@ -75,7 +76,7 @@ npm run build
 docker build -f Dockerfile -t $DOCKER_USER_ID/translator-frontend:minikube .
 docker push $DOCKER_USER_ID/translator-frontend:minikube
 
-sed -ie 's/kubernatesDeployments/mode/g' public/index.html
+sed -ie 's/gCloudK8s/mode/g' public/index.html
 echo "Restoring :"$CURRENT_DATE" With current_time"
 sed -ie 's/'$CURRENT_DATE'/current_time/g' public/index.html
 cat public/index.html

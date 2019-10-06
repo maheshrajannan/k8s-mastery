@@ -14,6 +14,6 @@ docker container ls -a
 docker container rm $(docker container ls -aq)
 echo "After Removing All Containers:"
 docker container ls -a
-docker container prune
+yes | docker container prune
 echo "After Pruning All Containers:"
 docker container ls -a
