@@ -15,3 +15,5 @@ kubectl delete service translator-frontend-lb
 kubectl delete service sa-logic
 kubectl delete service sa-web-app-lb
 minikube service list
+
+minikube stop
