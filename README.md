@@ -26,3 +26,11 @@ sudo chown -R maheshrajannan:staff bin
 
 Time tracking
 maheshrajannan
+
+Organize Later.
+
+https://stackabuse.com/how-to-uninstall-node-js-from-mac-osx/
+
+https://stackoverflow.com/questions/55271798/browserslist-caniuse-lite-is-outdated-please-run-next-command-npm-update-cani
+
+Browserslist: caniuse-lite is outdated. Please run next command `yarn upgrade`
