@@ -4,8 +4,8 @@ unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
 echo "InstallSaLogic with Docker:"+ `date`
-sh StopSaLogicLocally.sh
-sh StopSaLogicDocker.sh
+#sh StopSaLogicLocally.sh
+#sh StopSaLogicDocker.sh
 echo "Building sentiment-analysis-logic"
 docker build -f Dockerfile -t maheshrajannan/sentiment-analysis-logic .
 echo "Pushing sentiment-analysis-logic"

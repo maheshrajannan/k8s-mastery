@@ -1,11 +1,16 @@
 #kubernatesDeployments.sh
 echo '1/20: Is Minikube running ?'
 minikube status
-
 echo '2/20: Rest Docker to prevent connection error'
+source ~/.bash_profile
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
+docker ps
+minikube status
+#Set node environment early so that it fails quickly.
+which nvm
+nvm use 12.13.0
 
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
 echo "Starting At "$CURRENT_DATE

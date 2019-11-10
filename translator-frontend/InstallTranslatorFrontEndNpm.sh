@@ -1,6 +1,8 @@
 #deployToLocal.sh
 #Run it as sh deployToLocal.sh > deployToLocal.log &
-
+#Set node environment early so that it fails quickly.
+which nvm
+nvm use 12.13.0
 node --version
 npm --version
 rm -fr ./node-modules

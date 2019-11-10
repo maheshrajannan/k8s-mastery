@@ -1,7 +1,7 @@
 #InstallSaLogicLocally.sh
 #Kill the process
 echo "InstallSaLogicLocally:"+ `date`
-sh StopSaLogicLocally.sh
+#sh StopSaLogicLocally.sh
 which python3
 python3 -m pip install -r sa/requirements.txt
 python3 -m textblob.download_corpora

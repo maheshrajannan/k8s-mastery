@@ -2,7 +2,7 @@
 # find and kill it.
 # INFO: It also greps itself and says cannot kill, so that can be ignored.
 echo "InstallSaWebAppLocally"+ `date`
-sh StopSaWebAppLocally.sh
+#sh StopSaWebAppLocally.sh
 which mvn
 mvn --version
 mvn clean install

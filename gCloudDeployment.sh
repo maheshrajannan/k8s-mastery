@@ -1,13 +1,17 @@
-# I referred the guestbook application and microservices 
+# I referred the guestbook application and microservices
 # to find out how those are initialized.
 echo '1/20: Is glcoud initialized'
-sh deletegCloudDeployments.sh
-gcloud container clusters create translator --num-nodes=5
-
-echo '2/20: Rest Docker to prevent connection error'
+#Set node environment early so that it fails quickly.
+source ~/.bash_profile
+echo '2/20: Reset Docker to prevent connection error'
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
+docker ps
+which nvm
+nvm use 12.13.0
+sh deleteGCloudCluster.sh
+gcloud container clusters create translator --num-nodes=5
 
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
 echo "Starting At "$CURRENT_DATE

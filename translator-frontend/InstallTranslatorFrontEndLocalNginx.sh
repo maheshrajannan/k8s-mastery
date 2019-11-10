@@ -2,6 +2,10 @@
 #Run it as sh deployToLocal.sh > deployToLocal.log &
 #echo <password> | sudo -S <command>
 echo "TranslatorFrontendLocalNginx:"+ `date`
+#Set node environment early so that it fails quickly.
+source ~/.bash_profile
+which nvm
+nvm use 12.13.0
 sh StopTranslatorFrontendLocalNginx.sh
 sh clearNode.sh
 TESTDATE=`date +%b-%d-%y_%I_%M_%S_%p`
@@ -13,7 +17,7 @@ new_values="localhost:8080"
 old_values=`cat ../oldValues.txt`
 echo $new_values > ../oldValues.txt
 
-echo $TESTDATE 
+echo $TESTDATE
 echo $NGINX_HOME
 
 sed -ie 's/mode/local-nginx/g' public/index.html

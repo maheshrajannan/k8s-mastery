@@ -1,11 +1,17 @@
 echo "Please ensure you are logged in to docker / docker desktop"
+source ~/.bash_profile
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
+docker ps
+
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
 echo "CURRENT_DATE:"+$CURRENT_DATE
-sh StopTranslatorFrontEndDocker.sh
-sh StopTranslatorFrontEndLocalNginx.sh
+#Set node environment early so that it fails quickly.
+which nvm
+nvm use 12.13.0
+# sh StopTranslatorFrontEndDocker.sh
+# sh StopTranslatorFrontEndLocalNginx.sh
 sh clearNode.sh
 #sudo brew services stop nginx
 #DONE replace time with date and mode with docker
