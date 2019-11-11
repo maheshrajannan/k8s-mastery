@@ -1,1 +1,1 @@
-yes | gcloud container clusters delete translator
+yes | gcloud container clusters delete translator3

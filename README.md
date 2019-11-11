@@ -20,7 +20,7 @@ Maheshs-MacBook-Pro-2:resource-manifests maheshrajannan$ minikube service list
 | kube-system | kube-dns             | No node port                |
 | kube-system | kubernetes-dashboard | No node port                |
 |-------------|----------------------|-----------------------------|
-Maheshs-MacBook-Pro-2:resource-manifests maheshrajannan$ 
+Maheshs-MacBook-Pro-2:resource-manifests maheshrajannan$
 
 sudo chown -R maheshrajannan:staff bin
 
@@ -33,4 +33,32 @@ https://stackabuse.com/how-to-uninstall-node-js-from-mac-osx/
 
 https://stackoverflow.com/questions/55271798/browserslist-caniuse-lite-is-outdated-please-run-next-command-npm-update-cani
 
+TODO
+
 Browserslist: caniuse-lite is outdated. Please run next command `yarn upgrade`
+
+upgrade python.
+
+Serve from node platform instead of nginx ?
+
+Install SSL for microservices
+
+Install SSL on NGINX.
+
+Except for few cases nginx is better than node. Especially serving static files.
+
+
+https://cloud.google.com/kubernetes-engine/docs/tutorials/configuring-domain-name-static-ip
+
+First configure domain name.
+Then configure https in nginx
+
+
+gcloud compute addresses create helloweb-ip --region us-central1
+
+#Based on mine
+gcloud compute addresses create translator-ip --region us-central1
+
+gcloud compute addresses describe translator-ip --region us-central1
+
+35.238.248.186

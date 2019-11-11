@@ -1,7 +1,12 @@
 # I referred the guestbook application and microservices
 # to find out how those are initialized.
+# gcloud config set project [PROJECT_ID]
+# Maheshs-MBP-2:Translator-k8s maheshrajannan$ gcloud config get-value project
+# redis-251601
+# gcloud config set compute/zone [COMPUTE_ENGINE_ZONE]
+# https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
 echo '1/20: Is glcoud initialized'
-#Set node environment early so that it fails quickly.
+# Set node environment early so that it fails quickly.
 source ~/.bash_profile
 echo '2/20: Reset Docker to prevent connection error'
 unset DOCKER_HOST
@@ -11,7 +16,10 @@ docker ps
 which nvm
 nvm use 12.13.0
 sh deleteGCloudCluster.sh
-gcloud container clusters create translator --num-nodes=5
+# If you create more than 1 node and you exceed the limit,
+# you have to wait 2 days for increasing or decreasing the limit..
+# oh poor DEVOPS engineer..!
+gcloud container clusters create translator3 --num-nodes=1
 
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
 echo "Starting At "$CURRENT_DATE
