@@ -62,3 +62,12 @@ gcloud compute addresses create translator-ip --region us-central1
 gcloud compute addresses describe translator-ip --region us-central1
 
 35.238.248.186
+
+Updates are available for some Cloud SDK components.  To install them,
+please run:
+  $ gcloud components update
+
+TODO:
+https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error
+
+Change from translator3 to translator
