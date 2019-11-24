@@ -1,3 +1,18 @@
+#!/bin/sh
+abort()
+{
+    echo >&2 '
+***************
+*** ABORTED ***
+***************
+'
+    echo "An error occurred in RunTranslator.sh locally . Exiting..." >&2
+    exit 1
+}
+
+trap 'abort' 0
+
+set -e
 #RunSentimentAnalyzer.sh
 CURRENT_DIR=`pwd`
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%S_%p`
@@ -20,3 +35,10 @@ echo "Started translator-frontend. Do tail -f logs/translator-frontend.log from 
 #open -a Terminal $CURRENT_DIR/logs
 cd ../
 pwd
+
+trap : 0
+
+echo >&2 '
+************
+*** RunTranslator.sh locally DONE ***
+************'

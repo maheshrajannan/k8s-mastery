@@ -1,12 +1,29 @@
+#!/bin/sh
+
+abort()
+{
+    echo >&2 '
+***************
+*** ABORTED InstallTranslatorFrontendLocalNginx ***
+***************
+'
+    echo "An error occurred. Exiting..." >&2
+    exit 1
+}
+
+trap 'abort' 0
+
+set -e
 #deployToLocalNginx.sh
 #Run it as sh deployToLocal.sh > deployToLocal.log &
 #echo <password> | sudo -S <command>
 echo "TranslatorFrontendLocalNginx:"+ `date`
 #Set node environment early so that it fails quickly.
 source ~/.bash_profile
-which nvm
+#which nvm
 nvm use 12.13.0
-sh StopTranslatorFrontendLocalNginx.sh
+echo "bash env is set:"+ `date`
+#sh StopTranslatorFrontendLocalNginx.sh
 sh clearNode.sh
 TESTDATE=`date +%b-%d-%y_%I_%M_%S_%p`
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
@@ -61,3 +78,11 @@ open -a "Google Chrome" --args --incognito "http://localhost:80"
 sleep 10
 open -a "Google Chrome" --args --incognito "http://localhost:80"
 sleep 10
+
+
+trap : 0
+
+echo >&2 '
+************
+*** DONE InstallTranslatorFrontendLocalNginx ***
+************'

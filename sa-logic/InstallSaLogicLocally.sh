@@ -1,3 +1,18 @@
+#!/bin/sh
+abort()
+{
+    echo >&2 '
+***************
+*** ABORTED InstallSaLogicLocally ***
+***************
+'
+    echo "An error occurred InstallSaLogicLocally . Exiting..." >&2
+    exit 1
+}
+
+trap 'abort' 0
+
+set -e
 #InstallSaLogicLocally.sh
 #Kill the process
 echo "InstallSaLogicLocally:"+ `date`
@@ -9,3 +24,10 @@ ps -ef | grep sentiment_analysis.py
 #INFO: When you issues run it directly to troubleshoot.
 python3 sa/sentiment_analysis.py
 #open http://localhost:5000
+
+trap : 0
+
+echo >&2 '
+************
+*** DONE InstallSaLogicLocally ***
+************'
