@@ -1,3 +1,18 @@
+#!/bin/sh
+abort()
+{
+    echo >&2 '
+***************
+*** ABORTED InstallSaLogicDocker ***
+***************
+'
+    echo "An error occurred InstallSaLogicDocker . Exiting..." >&2
+    exit 1
+}
+
+trap 'abort' 0
+
+set -e
 #InstallSaLogicLocally.sh
 #Kill the process
 unset DOCKER_HOST
@@ -15,3 +30,10 @@ docker run -d -p 5050:5000 maheshrajannan/sentiment-analysis-logic &
 sleep 5
 echo "List of containers running now"
 docker container ls -a
+
+trap : 0
+
+echo >&2 '
+************
+*** DONE InstallSaLogicDocker ***
+************'

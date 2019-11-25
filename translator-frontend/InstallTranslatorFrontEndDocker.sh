@@ -1,3 +1,19 @@
+#!/bin/sh
+
+abort()
+{
+    echo >&2 '
+***************
+*** ABORTED InstallTranslatorFrontendDocker ***
+***************
+'
+    echo "An error occurred. Exiting..." >&2
+    exit 1
+}
+
+trap 'abort' 0
+
+set -e
 echo "Please ensure you are logged in to docker / docker desktop"
 source ~/.bash_profile
 unset DOCKER_HOST
@@ -8,7 +24,7 @@ docker ps
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
 echo "CURRENT_DATE:"+$CURRENT_DATE
 #Set node environment early so that it fails quickly.
-which nvm
+#which nvm
 nvm use 12.13.0
 # sh StopTranslatorFrontEndDocker.sh
 # sh StopTranslatorFrontEndLocalNginx.sh
@@ -48,3 +64,11 @@ open -a "Google Chrome" --args --incognito "http://localhost:80"
 sleep 10
 open -a "Google Chrome" --args --incognito "http://localhost:80"
 sleep 10
+
+
+trap : 0
+
+echo >&2 '
+************
+*** DONE InstallTranslatorFrontendDocker ***
+************'
