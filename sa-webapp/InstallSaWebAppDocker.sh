@@ -1,3 +1,15 @@
+#!/bin/sh
+
+abort()
+{
+    echo >&2 '
+***************
+*** ABORTED InstallSaWebAppLocally.sh ***
+***************
+'
+    echo "An error occurred InstallSaWebAppDocker . Exiting..." >&2
+    exit 1
+}
 #InstallSaWebAppDocker.sh
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
@@ -18,3 +30,9 @@ docker run -d -p 8080:8080 -e SA_LOGIC_API_URL=$SA_LOGIC_API_URL maheshrajannan/
 sleep 5
 echo "List of containers running now"
 docker container ls -a
+
+
+echo >&2 '
+************
+*** DONE InstallSaWebAppDocker.sh ***
+************'
