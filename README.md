@@ -79,3 +79,11 @@ Change from translator3 to translator
 Record your voice along with the diagram
 
 grep if a process is running. Then start the next process.
+
+
+GOAL only do high value low cost items, next high value items after isolating it.
+NOT small incremental changes.
+
+TODO
+
+Prevent the html file from caching in browser

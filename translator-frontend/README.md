@@ -20,4 +20,8 @@ Nginx
 Maheshs-MBP-2:sa-frontend maheshrajannan$ sudo brew services start nginx
 Password:
 Service `nginx` already started, use `brew services restart nginx` to restart.
-Maheshs-MBP-2:sa-frontend maheshrajannan$ 
+Maheshs-MBP-2:sa-frontend maheshrajannan$
+
+TODO
+
+Prevent the html file from caching in browser
