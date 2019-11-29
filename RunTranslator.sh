@@ -23,6 +23,17 @@ cd sa-logic
 sh InstallSaLogicLocally.sh > ../logs/sa-logic.log &
 echo "Started sa-logic. Do tail -f logs/sa-logic.log from "+$CURRENT_DIR
 #open -a Terminal $CURRENT_DIR/logs
+sleep 45
+if pgrep -f "sentiment_analysis" > /dev/null
+then
+  #TODO: bug, why is this NOT printing process number...REMOVE hack.
+  echo "sentiment_analysis is running as $(pgrep -f 'sentiment_analysis') :) "
+else
+  echo "ERROR: sentiment_analysis is NOT running. :("
+  exit 1
+  abort
+fi
+
 echo "Starting sa-webapp"
 cd ../sa-webapp
 sh InstallSaWebAppLocally.sh > ../logs/sa-webapp.log &

@@ -89,3 +89,6 @@ TODO
 Prevent the html file from caching in browser
 
 pass password as a env variable.
+
+TODO: IMPORTANT
+Try in windows..cygwin. to see if it works.
