@@ -5,12 +5,20 @@
 # Propagate the error and stop deployment.
 # There is no point in re-trying. It should have started the first time. If it fails, then check to sleep
 # Why it fails, so that it restarts from scratch , after a fresh clean build.
+# TODO: what are the different forms of shell, bash shell and so on..
 check_process() {
   echo "$ts: checking $1"
   [ "$1" = "" ]  && return 0
-  PROCESS_NUM=$(ps ax | grep $1 | grep -v "grep" | cut -f2 -d" ")
-  if [[ -z $PROCESS_NUM && $PROCESS_NUM -gt 0 ]]; then
-    echo "$1 is running as $PROCESS_NUM :) "
+  # PROCESS_NUM= pgrep -f $1
+  # echo "$1 is running as $PROCESS_NUM :) " <-- use this for troubleshooting.
+  # $(ps aux | grep $1 | grep -v grep | awk '{print $2}')
+  #ps aux | grep "sentiment_analysis" | grep -v "grep" | awk '{print $2}'
+  #if [[ -z $PROCESS_NUM && $PROCESS_NUM -gt 0 ]]; then <-- worked before.
+  #if [ -n $PROCESS_NUM ] <-- ok, but process id is not printing below.
+  if pgrep -f $1 > /dev/null
+  then
+    #TODO: bug, why is this NOT printing process number...REMOVE hack.
+    echo "$1 is running as $(pgrep -f $1) :) "
     return 1
   else
     echo "$1 is NOT running. :("
@@ -37,6 +45,3 @@ triple_check_process() {
   echo "Done Checking.EXITING !!."
   return 0
 }
-
-
-triple_check_process "sentiment_analysis" 10
