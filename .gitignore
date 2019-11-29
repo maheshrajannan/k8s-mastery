@@ -20,3 +20,5 @@ Backups/*.zip
 *.swp
 
 logs/.sa-logic.log.swp
+
+*.swp
