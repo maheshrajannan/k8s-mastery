@@ -39,7 +39,7 @@ Browserslist: caniuse-lite is outdated. Please run next command `yarn upgrade`
 
 upgrade python.
 
-Serve from node platform instead of nginx ?
+Serve from node platform instead of nginx ? NOPE. Nginx is best in so many ways.
 
 Install SSL for microservices
 
@@ -47,11 +47,15 @@ Install SSL on NGINX.
 
 Except for few cases nginx is better than node. Especially serving static files.
 
+Understand the style of explanation in . Draw diagrams and put it.
+
 
 https://cloud.google.com/kubernetes-engine/docs/tutorials/configuring-domain-name-static-ip
 
 First configure domain name.
 Then configure https in nginx
+
+Record your voice along with the diagram
 
 
 gcloud compute addresses create helloweb-ip --region us-central1
@@ -71,3 +75,7 @@ TODO:
 https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error
 
 Change from translator3 to translator
+
+Record your voice along with the diagram
+
+grep if a process is running. Then start the next process.
