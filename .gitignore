@@ -18,3 +18,5 @@ Backups/*.zip
 **/**/*.htmle
 **/**/*.jse
 *.swp
+
+logs/.sa-logic.log.swp
