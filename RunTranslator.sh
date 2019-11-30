@@ -29,9 +29,8 @@ then
   #TODO: bug, why is this NOT printing process number...REMOVE hack.
   echo "sentiment_analysis is running as $(pgrep -f 'sentiment_analysis') :) "
 else
-  echo "ERROR: sentiment_analysis is NOT running. :("
+  echo "ERROR: sentiment_analysis is NOT running. :(  . Please Check logs/sa-logic.log"
   exit 1
-  abort
 fi
 
 echo "Starting sa-webapp"
