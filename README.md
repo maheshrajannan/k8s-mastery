@@ -92,3 +92,14 @@ pass password as a env variable.
 
 TODO: IMPORTANT
 Try in windows..cygwin. to see if it works.
+
+Split it in to 3 separate repositories.
+Also move all build code to the respective components. Including .yaml files.
+
+Check it in to bitbucket.
+
+Stabilize the system and process flow. CI, code quality, vulnerability scan,unit testing, component testing and end to end testing.
+
+Then make functional changes.
+
+TODO: publish an example on graphs.

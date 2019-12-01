@@ -38,11 +38,32 @@ cd ../sa-webapp
 sh InstallSaWebAppLocally.sh > ../logs/sa-webapp.log &
 #open -a Terminal $CURRENT_DIR/logs
 echo "Started sa-webapp. Do tail -f logs/sa-webapp.log from "+$CURRENT_DIR
+sleep 45
+if pgrep -f "sentiment-analysis-web" > /dev/null
+then
+  #TODO: bug, why is this NOT printing process number...REMOVE hack.
+  echo "sentiment-analysis-web is running as $(pgrep -f 'sentiment-analysis-web') :) "
+else
+  echo "ERROR: sentiment-analysis-web is NOT running. :(  . Please Check logs/sa-webapp.log"
+  exit 1
+fi
+
+#nginx
 echo "Starting translator-frontend"
 cd ../translator-frontend
 sh InstallTranslatorFrontendLocalNginx.sh > ../logs/translator-frontend.log &
 echo "Started translator-frontend. Do tail -f logs/translator-frontend.log from "+$CURRENT_DIR
 #open -a Terminal $CURRENT_DIR/logs
+sleep 45
+if pgrep -f "nginx" > /dev/null
+then
+  #TODO: bug, why is this NOT printing process number...REMOVE hack.
+  echo "nginx is running as $(pgrep -f 'nginx') :) "
+else
+  echo "ERROR: nginx is NOT running. :(  . Please Check logs/translator-frontend.log"
+  exit 1
+fi
+
 cd ../
 pwd
 
