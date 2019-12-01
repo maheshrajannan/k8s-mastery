@@ -31,8 +31,8 @@ docker run -d -p 5050:5000 maheshrajannan/sentiment-analysis-logic &
 sleep 5
 echo "List of containers running now"
 docker container ls -a
-echo " The one we just started is : "
 saLogicId="$(docker container ls -f ancestor="maheshrajannan/sentiment-analysis-logic" -f status=running -aq)"
+echo " The one we just started is : $saLogicId"
 
 if [ -n "$saLogicId" ]; then
   #TODO: bug, why is this NOT printing process number...REMOVE hack.
