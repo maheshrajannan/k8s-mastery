@@ -36,7 +36,7 @@ RUN npm install --silent
 COPY . /app
 RUN pwd
 RUN ls -lrt
-RUN ls -lrt build
+#RUN ls -lrt build
 #Failing with error index.html not found.
 RUN npm install react-scripts -g --silent
 RUN npm run build

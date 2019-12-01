@@ -45,8 +45,9 @@ sed -ie 's/'$old_values'/'$new_values'/g' src/App.js
 cat src/App.js
 
 cat public/index.html
+#TODO: is this necessary even for complete docker file ?
 echo "Running build"
-npm run build
+#npm run build
 #https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/
 echo "building docker image"
 docker build -f CompleteDockerfile -t $DOCKER_USER_ID/translator-frontend .

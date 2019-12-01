@@ -1,0 +1,4 @@
+CONTAINER ID        IMAGE                                       COMMAND                  CREATED             STATUS              PORTS                    NAMES
+1e7a41b69803        459480a10a2b                                "nginx -g 'daemon of…"   15 minutes ago      Up 15 minutes       0.0.0.0:80->80/tcp       thirsty_wright
+b487f04ae294        maheshrajannan/sentiment-analysis-web-app   "java -jar sentiment…"   17 minutes ago      Up 17 minutes       0.0.0.0:8080->8080/tcp   wonderful_noether
+b4d2eaca98c9        maheshrajannan/sentiment-analysis-logic     "python3 sentiment_a…"   17 minutes ago      Up 17 minutes       0.0.0.0:5050->5000/tcp   reverent_nash

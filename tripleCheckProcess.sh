@@ -1,4 +1,19 @@
-#!/bin/bash
+#!/bin/sh
+
+abort()
+{
+    echo >&2 '
+***************
+*** ABORTED ***
+***************
+'
+    echo "An error occurred in tripleCheckProcess. Exiting..." >&2
+    exit 1
+}
+
+trap 'abort' 0
+
+set -e
 
 # https://stackoverflow.com/questions/7708715/check-if-program-is-running-with-bash-shell-script
 # The reason this is important is because if deployment of the pre-requisite component fails, Then
@@ -7,6 +22,7 @@
 # Why it fails, so that it restarts from scratch , after a fresh clean build.
 # TODO: what are the different forms of shell, bash shell and so on..
 check_process() {
+  ts=`date +%T`
   echo "$ts: checking $1"
   [ "$1" = "" ]  && return 0
   # PROCESS_NUM= pgrep -f $1
@@ -45,3 +61,11 @@ triple_check_process() {
   echo "Done Checking.EXITING !!."
   return 0
 }
+
+trap : 0
+
+echo >&2 '
+************
+*** DONE tripleCheckProcess ***
+************
+'

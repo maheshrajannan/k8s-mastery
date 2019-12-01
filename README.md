@@ -103,3 +103,8 @@ Stabilize the system and process flow. CI, code quality, vulnerability scan,unit
 Then make functional changes.
 
 TODO: publish an example on graphs.
+
+TODO: now the completeDocker is running. However the current_time is getting messed up.
+If this happens simply revert the public/index.html and re-run the build and it will fix the issue.
+
+Also .dockerignore has ignored build directory, so the other dockerFile may NOT work.
