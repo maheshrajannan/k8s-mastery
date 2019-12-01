@@ -34,7 +34,6 @@ saWebAppId="$(docker container ls -f ancestor="maheshrajannan/sentiment-analysis
 echo " The one we just started is : $saWebAppId"
 
 if [ -n "$saWebAppId" ]; then
-  #TODO: bug, why is this NOT printing process number...REMOVE hack.
   echo "sentiment_analysis_web container is running $(docker container ls -f ancestor=maheshrajannan/sentiment-analysis-web-app -f status=running -aq) :) "
 else
   echo "ERROR: sentiment_analysis_web is NOT running. :(  . Please Check logs/sa-webapp.log"
