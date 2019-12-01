@@ -25,11 +25,23 @@ echo "Building sentiment-analysis-logic"
 docker build -f Dockerfile -t maheshrajannan/sentiment-analysis-logic .
 echo "Pushing sentiment-analysis-logic"
 docker push maheshrajannan/sentiment-analysis-logic
+# The calling thread need NOT have parallelism
 echo "Running sentiment-analysis-logic"
 docker run -d -p 5050:5000 maheshrajannan/sentiment-analysis-logic &
 sleep 5
 echo "List of containers running now"
 docker container ls -a
+echo " The one we just started is : "
+saLogicId="$(docker container ls -f ancestor="maheshrajannan/sentiment-analysis-logic" -f status=running -aq)"
+
+if [ -n "$saLogicId" ]; then
+  #TODO: bug, why is this NOT printing process number...REMOVE hack.
+  echo "sentiment_analysis container is running $(docker container ls -f ancestor=maheshrajannan/sentiment-analysis-logic -f status=running -aq) :) "
+else
+  echo "ERROR: sentiment_analysis is NOT running. :(  . Please Check logs/sa-logic.log"
+  exit 1
+fi
+
 
 trap : 0
 
