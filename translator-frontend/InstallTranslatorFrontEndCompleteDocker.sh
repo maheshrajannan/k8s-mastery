@@ -49,7 +49,7 @@ echo "Running build"
 npm run build
 #https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/
 echo "building docker image"
-docker build -f Dockerfile -t $DOCKER_USER_ID/translator-frontend .
+docker build -f CompleteDockerfile -t $DOCKER_USER_ID/translator-frontend .
 docker push $DOCKER_USER_ID/translator-frontend
 docker pull $DOCKER_USER_ID/translator-frontend
 sed -ie 's/docker/mode/g' public/index.html

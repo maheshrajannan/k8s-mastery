@@ -27,7 +27,7 @@
 # Login with bash, that requires installing bash.
 # docker run --rm -it 7690234f65d0 /bin/bash
 
-FROM node:10.14.2-alpine as builder
+FROM node:12.13.0-alpine as builder
 RUN apk update && apk add bash
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
