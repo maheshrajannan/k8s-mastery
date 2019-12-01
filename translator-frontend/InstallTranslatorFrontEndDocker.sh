@@ -59,6 +59,16 @@ docker run -d -p 80:80 $DOCKER_USER_ID/translator-frontend
 echo "List of containers running now"
 docker container ls -a
 echo "Opening the translator-frontend"
+translatorFrontEndId="$(docker container ls -f ancestor="maheshrajannan/translator-frontend" -f status=running -aq)"
+echo " The one we just started is : $translatorFrontEndId"
+
+if [ -n "$translatorFrontEndId" ]; then
+  echo "translator-frontend container is running $(docker container ls -f ancestor=maheshrajannan/translator-frontend -f status=running -aq) :) "
+else
+  echo "ERROR: translator-frontend is NOT running. :(  . Please Check logs/translator-frontend.log"
+  exit 1
+fi
+
 
 open -a "Google Chrome" --args --incognito "http://localhost:80"
 sleep 10
