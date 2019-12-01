@@ -30,7 +30,7 @@ docker run -d -p 8080:8080 -e SA_LOGIC_API_URL=$SA_LOGIC_API_URL maheshrajannan/
 sleep 5
 echo "List of containers running now"
 docker container ls -a
-saWebAppId="$(docker container ls -f ancestor="maheshrajannan/sentiment-analysis-web-app-x" -f status=running -aq)"
+saWebAppId="$(docker container ls -f ancestor="maheshrajannan/sentiment-analysis-web-app" -f status=running -aq)"
 echo " The one we just started is : $saWebAppId"
 
 if [ -n "$saWebAppId" ]; then
