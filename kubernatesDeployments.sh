@@ -1,19 +1,22 @@
 #kubernatesDeployments.sh
 echo '1/20: Is Minikube running ?'
 minikube status
-echo '2/20: Rest Docker to prevent connection error'
+echo '2/20: Reset Docker to prevent connection error'
 source ~/.bash_profile
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
 docker ps
-minikube status
+echo '3/20: Set node environment early so that it fails quickly'
 #Set node environment early so that it fails quickly.
 which nvm
 nvm use 12.13.0
 
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
-echo "Starting At "$CURRENT_DATE
+echo "4/20 Starting At "$CURRENT_DATE
+
+echo "Deleting previous deployments "
+#TODO: invoke delete.
 kubectl get deployments
 kubectl delete deployment translator-frontend
 kubectl delete deployment sa-logic
@@ -26,10 +29,13 @@ kubectl delete service sa-logic
 kubectl delete service sa-web-app-lb
 kubectl get services
 
-kubectl apply -f resource-manifests/sa-logic-deployment.yaml --record
+echo "5/20 Deploying sa-logic previous deployments"
+kubectl apply -f resource-manifests/sa-logic-deployment-x.yaml --record
 kubectl get deployments
 kubectl get pods
 
+
+echo "6/20 Deploying service-sa-logic previous deployments"
 kubectl apply -f resource-manifests/service-sa-logic.yaml --record
 kubectl get services
 kubectl get pods

@@ -14,6 +14,8 @@ trap 'abort' 0
 
 set -e
 #RunSentimentAnalyzer.sh
+# if you get xcode error. xcode-select --install
+# https://ma.ttias.be/mac-os-xcrun-error-invalid-active-developer-path-missing-xcrun/
 CURRENT_DIR=`pwd`
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%S_%p`
 mkdir logs/$CURRENT_DATE

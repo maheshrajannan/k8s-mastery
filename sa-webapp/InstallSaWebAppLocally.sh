@@ -18,7 +18,7 @@ echo "InstallSaWebAppLocally"+ `date`
 which mvn
 mvn --version
 mvn clean install
-java -jar target/sentiment-analysis-web-0.0.1-SNAPSHOT.jar --sa.logic.api.url=http://localhost:5000
+java -jar target/sentiment-analysis-web-0.0.1-SNAPSHOT.jar --sa.logic.api.url=http://localhost:5000 > web-app.log
 
 echo >&2 '
 ************

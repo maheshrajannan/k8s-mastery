@@ -33,6 +33,7 @@ echo "Started sa-webapp. Do tail -f logs/sa-webapp.log from "+$CURRENT_DIR
 echo "Starting sa-frontend"
 cd ../translator-frontend
 sh InstallTranslatorFrontEndCompleteDocker.sh > ../logs/translator-frontend.log
+#sh InstallTranslatorFrontEndCompleteDocker.sh > ../logs/translator-frontend.log
 #sh InstallSaFrontEndDocker.sh
 echo "Started translator-frontend. Do tail -f logs/translator-frontend.log from "+$CURRENT_DIR
 #open -a Terminal $CURRENT_DIR/logs

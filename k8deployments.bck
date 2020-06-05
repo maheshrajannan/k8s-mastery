@@ -1,0 +1,24 @@
+#!/bin/sh
+abort()
+{
+    echo >&2 '
+***************
+*** ABORTED kubernatesDeployments.sh Docker ***
+***************
+'
+    echo "An error occurred in kubernatesDeployments.sh docker . Exiting..." >&2
+    exit 1
+}
+
+trap 'abort' 0
+
+set -e
+
+
+
+trap : 0
+
+echo >&2 '
+************
+*** DONE kubernatesDeployments ***
+************'

@@ -21,6 +21,7 @@ SA_LOGIC_API_URL='http://'$SA_LOGIC_CONTAINER_IP":5000"
 echo "SA_LOGIC_API_URL:"$SA_LOGIC_API_URL
 #sh StopSaWebAppLocally.sh
 #sh StopSaWebAppDocker.sh
+read -p "Looks right ?"
 echo "Building sentiment-analysis-web-app:"
 docker build -f Dockerfile -t maheshrajannan/sentiment-analysis-web-app .
 echo "Pushing sentiment-analysis-web-app:"
