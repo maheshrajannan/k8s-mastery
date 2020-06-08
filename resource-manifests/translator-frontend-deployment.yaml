@@ -3,7 +3,7 @@ kind: Deployment                                          # 1
 metadata:
   name: translator-frontend
 spec:
-  replicas: 2                                             # 2
+  replicas: 1                                             # 2
   minReadySeconds: 15
   strategy:
     type: RollingUpdate                                   # 3
@@ -16,7 +16,7 @@ spec:
         app: translator-frontend                                  # 6
     spec:
       containers:
-        - image: maheshrajannan/translator-frontend:minikube
+        - image: maheshrajannan/translator-frontend:Minikube
           imagePullPolicy: Always                         # 7
           name: sa-frontend
           ports:
