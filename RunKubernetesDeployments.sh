@@ -13,9 +13,9 @@ which nvm
 nvm use 12.13.0
 
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
-echo "4/20 Starting At "$CURRENT_DATE
+echo "Starting At "$CURRENT_DATE
 
-echo "Deleting previous deployments "
+echo "4/20 Deleting previous deployments "
 #TODO: invoke delete.
 kubectl get deployments
 kubectl delete deployment translator-frontend
@@ -30,12 +30,12 @@ kubectl delete service sa-web-app-lb
 kubectl get services
 
 echo "5/20 Deploying sa-logic previous deployments"
-kubectl apply -f resource-manifests/sa-logic-deployment-x.yaml --record
+kubectl apply -f resource-manifests/sa-logic-deployment.yaml --record
 kubectl get deployments
 kubectl get pods
 
 
-echo "6/20 Deploying service-sa-logic previous deployments"
+echo "6/20 Deploying service-sa-logic services"
 kubectl apply -f resource-manifests/service-sa-logic.yaml --record
 kubectl get services
 kubectl get pods
@@ -56,6 +56,7 @@ old_values=`cat oldValues.txt`
 echo "Old Values Are "$old_values
 echo "New Values Are "$new_values
 echo $new_values > oldValues.txt
+echo $old_values > newValues.txt
 
 cd translator-frontend
 echo "Replacing time"
@@ -66,7 +67,11 @@ echo "Running build"
 
 echo "Replacing-"$old_values"-with-"$new_values"-src/App.js"
 sed -ie 's/'$old_values'/'$new_values'/g' src/App.js
+echo "Now the values of app.js are:";read xyz;echo "hello $xyz"
+
 cat src/App.js
+
+echo "Verified app.js ?:";read xyz;echo "hello $xyz"
 
 rm -fr node_modules
 
@@ -74,8 +79,11 @@ npm install
 
 npm run build
 
-docker build -f Dockerfile -t $DOCKER_USER_ID/translator-frontend:minikube .
-docker push $DOCKER_USER_ID/translator-frontend:minikube
+docker build -f CompleteDockerfile -t $DOCKER_USER_ID/translator-frontend:Minikube .
+docker push $DOCKER_USER_ID/translator-frontend:Minikube
+
+echo "Verified new image with tag Minikube is pushed ?:";read xyz;echo "hello $xyz"
+
 
 sed -ie 's/kubernatesDeployments/mode/g' public/index.html
 echo "Restoring :"$CURRENT_DATE" With current_time"
