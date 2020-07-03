@@ -15,6 +15,9 @@ trap 'abort' 0
 set -e
 #InstallSaLogicLocally.sh
 #Kill the process
+# If you get an error on pip package. run xcode-select --install
+# https://ma.ttias.be/mac-os-xcrun-error-invalid-active-developer-path-missing-xcrun/
+
 echo "InstallSaLogicLocally:"+ `date`
 #sh StopSaLogicLocally.sh
 which python3

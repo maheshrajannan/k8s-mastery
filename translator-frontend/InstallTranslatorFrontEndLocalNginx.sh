@@ -48,6 +48,8 @@ cat src/App.js
 cat public/index.html
 npm run build
 
+echo "npm run build COMPLETE"
+
 cd $NGINX_HOME
 #zip ../ReportingProject_$TESTDATE ReportingProject -r . -x "*/node_modules/*"
 
@@ -56,9 +58,13 @@ zip $CURRENT/../Backups/NGINX-HTML_$TESTDATE html -r
 
 ls -lrt $CURRENT/../Backups/NGINX-HTML_$TESTDATE.zip
 
+echo "Backup COMPLETE"
+
 cd $CURRENT
 
 cp -vr build/* $NGINX_HOME/html
+# #INFO: IF this part fails after an OS upgrade or patch, then simply re-install nginx.
+# brew reinstall nginx
 echo $my_pass | sudo -S sudo brew services start nginx
 #sudo brew services start nginx
 
