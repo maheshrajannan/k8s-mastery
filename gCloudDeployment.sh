@@ -103,3 +103,14 @@ kubectl get svc
 kubectl get pods
 kubectl create -f resource-manifests/service-translator-frontend-lb.yaml
 kubectl get svc
+
+translatorIp=""
+translatorPort=""
+while [ -z $translatorIp ]; do
+    sleep 5
+    kubectl get svc
+    translatorIp=`kubectl get service translator-frontend-lb --output=jsonpath='{.status.loadBalancer.ingress[0].ip}'`
+	translatorPort=`kubectl get service translator-frontend-lb --output=jsonpath='{.spec.ports[0].port}'`
+done
+
+echo "launch "$translatorIp":"$translatorPort
