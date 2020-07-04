@@ -1,10 +1,13 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment                                          # 1
 metadata:
   name: translator-frontend
 spec:
   replicas: 1                                             # 2
   minReadySeconds: 15
+  selector:
+    matchLabels:
+      app: translator-frontend
   strategy:
     type: RollingUpdate                                   # 3
     rollingUpdate: 

@@ -41,22 +41,31 @@ old_values=`cat ../oldValues.txt`
 echo $new_values > ../oldValues.txt
 
 echo "Replacing-"$old_values"-with-"$new_values"-src/App.js"
+read -p "Please note old and new values"
 sed -ie 's/'$old_values'/'$new_values'/g' src/App.js
 cat src/App.js
+read -p "App.js contains new values ?"
 
 cat public/index.html
+read -p "index.html contains new values ?"
 #TODO: is this necessary even for complete docker file ?
 echo "Running build"
 #npm run build
 #https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/
 echo "building docker image"
 docker build -f CompleteDockerfile -t $DOCKER_USER_ID/translator-frontend .
+read -p "Finished Building Looks right ?"
+
 docker push $DOCKER_USER_ID/translator-frontend
+read -p "Finished Pushing Looks right ?"
+
 docker pull $DOCKER_USER_ID/translator-frontend
+
 sed -ie 's/docker/mode/g' public/index.html
 echo "Replacing :"$CURRENT_DATE" With current_time"
 sed -ie 's/'$CURRENT_DATE'/current_time/g' public/index.html
 cat public/index.html
+
 docker run -d -p 80:80 $DOCKER_USER_ID/translator-frontend
 echo "List of containers running now"
 docker container ls -a

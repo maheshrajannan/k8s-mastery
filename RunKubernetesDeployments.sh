@@ -1,4 +1,9 @@
 #kubernatesDeployments.sh
+# NOTE:INFO:
+# you would have to delete minikube if you face an error.
+# install java again by downloading from oracle. if system extension are blocked.
+# After that restart the system.
+# minikube --vm-driver=virtualbox start
 echo '1/20: Is Minikube running ?'
 minikube status
 echo '2/20: Reset Docker to prevent connection error'
@@ -55,6 +60,8 @@ new_values=`minikube service sa-web-app-lb --url| cut -d "/" -f 3-`
 old_values=`cat oldValues.txt`
 echo "Old Values Are "$old_values
 echo "New Values Are "$new_values
+echo "Note the old and new values:";read consent;echo "you said $consent"
+
 echo $new_values > oldValues.txt
 echo $old_values > newValues.txt
 
@@ -65,13 +72,16 @@ sed -ie 's/current_time/'$CURRENT_DATE'/g' public/index.html
 cat public/index.html
 echo "Running build"
 
+# TODO: the bug is somewhere here.
 echo "Replacing-"$old_values"-with-"$new_values"-src/App.js"
+grep $old_values src/App.js
+echo "Are old values found";read oldValuesFound;echo "hello $oldValuesFound"
 sed -ie 's/'$old_values'/'$new_values'/g' src/App.js
 echo "Now the values of app.js are:";read xyz;echo "hello $xyz"
 
 cat src/App.js
 
-echo "Verified app.js ?:";read xyz;echo "hello $xyz"
+echo "Verified app.js what webapp host:port it talks to ? does it math lb ?:";read xyz;echo "hello $xyz"
 
 rm -fr node_modules
 
