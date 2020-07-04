@@ -1,5 +1,7 @@
 # I referred the guestbook application and microservices
 # to find out how those are initialized.
+# curl https://sdk.cloud.google.com | bash
+# gcloud auth login
 # gcloud config set project [PROJECT_ID]
 # Maheshs-MBP-2:Translator-k8s maheshrajannan$ gcloud config get-value project
 # redis-251601
@@ -55,7 +57,7 @@ kubectl get pods
 newIp=""
 newPort=""
 while [ -z $newIp ]; do
-    sleep 1
+    sleep 5
     newIp=`kubectl get service sa-web-app-lb --output=jsonpath='{.status.loadBalancer.ingress[0].ip}'`
 	newPort=`kubectl get service sa-web-app-lb --output=jsonpath='{.spec.ports[0].port}'`
 done
@@ -85,8 +87,8 @@ npm install
 
 npm run build
 
-docker build -f Dockerfile -t $DOCKER_USER_ID/translator-frontend:minikube .
-docker push $DOCKER_USER_ID/translator-frontend:minikube
+docker build -f CompleteDockerfile -t $DOCKER_USER_ID/translator-frontend:Minikube .
+docker push $DOCKER_USER_ID/translator-frontend:Minikube
 
 sed -ie 's/gCloudK8s/mode/g' public/index.html
 echo "Restoring :"$CURRENT_DATE" With current_time"
