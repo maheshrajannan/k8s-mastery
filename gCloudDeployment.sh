@@ -18,10 +18,19 @@ docker ps
 which nvm
 nvm use 12.13.0
 sh deleteGCloudCluster.sh
+# INFO: 
 # If you create more than 1 node and you exceed the limit,
 # you have to wait 2 days for increasing or decreasing the limit..
 # oh poor DEVOPS engineer..!
-gcloud container clusters create translator3 --num-nodes=1
+# You will get a silent insufficient CPU error if num-nodes is 3.
+# I say silent because the pod will go to pending state
+# when you do kubectl describe you will get WARNING insufficient CPU
+# Details below,
+# Warning  FailedScheduling  43s (x2 over 43s)  
+# default-scheduler  0/1 nodes are available: 1 Insufficient cpu.
+# https://stackoverflow.com/
+# questions/38869673/pod-in-pending-state-due-to-insufficient-cpu
+gcloud container clusters create translator3 --num-nodes=3
 
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
 echo "Starting At "$CURRENT_DATE
