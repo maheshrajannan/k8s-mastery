@@ -22,3 +22,5 @@ Productivity enhancing changes. Please make them.
 # 3
 
 Apply ingress. Ensure that is not getting deleted and rebuilt each time.
+
+This way all the hardcoding can be thrown away for good.

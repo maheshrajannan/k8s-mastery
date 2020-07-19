@@ -18,6 +18,8 @@ set -e
 # https://ma.ttias.be/mac-os-xcrun-error-invalid-active-developer-path-missing-xcrun/
 CURRENT_DIR=`pwd`
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%S_%p`
+# Switch to root folder and run.
+cd ../../
 mkdir logs/$CURRENT_DATE
 mv logs/*.log logs/$CURRENT_DATE/
 echo "Starting sa-logic"
