@@ -1,5 +1,6 @@
 Enahancements.md
 
+# 1 Fix the CPU error.
 Events:
   Type     Reason            Age                From               Message
   ----     ------            ----               ----               -------
@@ -7,7 +8,10 @@ Events:
 
   https://stackoverflow.com/questions/38869673/pod-in-pending-state-due-to-insufficient-cpu
 
-  increasing the number of pods to 3.
+  increasing the number of pods to 3. Now to 2.
+
+# 2
+Productivity enhancing changes. Please make them.
 
   Remove Looks right.
 
@@ -17,7 +21,6 @@ Replace it with do pause features.
 
 Finished Building Looks right ?Finished Pushing Looks right ?
 
-Productivity enhancing changes. Please make them.
 
 # 3
 

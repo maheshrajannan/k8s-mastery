@@ -13,7 +13,13 @@ abort()
 trap 'abort' 0
 
 set -e
+cd ../../
+pwd
+# TODO: Please login before running the script, if you get an error.
+# docker login -u $DOCKER_USER_ID -p $DOCKER_PASSWORD
+# echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USER_ID --password-stdin
 #RunSentimentAnalyzerDocker.sh
+#a741bef6-18bd-4c6a-9060-b9a6a89b2329
 CURRENT_DIR=`pwd`
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%S_%p`
 mkdir logs/$CURRENT_DATE

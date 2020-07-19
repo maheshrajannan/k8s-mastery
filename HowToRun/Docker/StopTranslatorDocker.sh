@@ -4,6 +4,7 @@
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
+cd ../../
 echo "Listing All Containers:"
 docker container ls -a
 docker container stop $(docker container ls -aq)

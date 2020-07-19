@@ -13,6 +13,7 @@ abort()
 trap 'abort' 0
 
 set -e
+cd ../../
 #StopSentimentAnalyzer.sh
 #If you want to stop and log off for the day.
 CURRENT_DIR=`pwd`

@@ -13,6 +13,7 @@ abort()
 trap 'abort' 0
 
 set -e
+cd ../../
 #RunSentimentAnalyzer.sh
 # if you get xcode error. xcode-select --install
 # https://ma.ttias.be/mac-os-xcrun-error-invalid-active-developer-path-missing-xcrun/
