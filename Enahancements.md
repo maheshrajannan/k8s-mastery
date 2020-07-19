@@ -8,3 +8,17 @@ Events:
   https://stackoverflow.com/questions/38869673/pod-in-pending-state-due-to-insufficient-cpu
 
   increasing the number of pods to 3.
+
+  Remove Looks right.
+
+Please note old and new values
+
+Replace it with do pause features.
+
+Finished Building Looks right ?Finished Pushing Looks right ?
+
+Productivity enhancing changes. Please make them.
+
+# 3
+
+Apply ingress. Ensure that is not getting deleted and rebuilt each time.

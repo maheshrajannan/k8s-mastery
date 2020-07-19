@@ -30,7 +30,7 @@ sh deleteGCloudCluster.sh
 # default-scheduler  0/1 nodes are available: 1 Insufficient cpu.
 # https://stackoverflow.com/
 # questions/38869673/pod-in-pending-state-due-to-insufficient-cpu
-gcloud container clusters create translator3 --num-nodes=3
+gcloud container clusters create translator3 --num-nodes=2
 
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
 echo "Starting At "$CURRENT_DATE
@@ -63,6 +63,11 @@ kubectl apply -f resource-manifests/service-sa-web-app-lb.yaml
 kubectl get services
 kubectl get pods
 
+# INFO: This is to prevent silent Errors.
+kubectl rollout status deployment sa-logic
+kubectl rollout status deployment sa-web-app
+
+# TODO: This loop may not be necessary.
 newIp=""
 newPort=""
 while [ -z $newIp ]; do
@@ -112,7 +117,9 @@ kubectl get svc
 kubectl get pods
 kubectl create -f resource-manifests/service-translator-frontend-lb.yaml
 kubectl get svc
+kubectl rollout status deployment translator-frontend
 
+# TODO This may not be necessary.
 translatorIp=""
 translatorPort=""
 while [ -z $translatorIp ]; do
