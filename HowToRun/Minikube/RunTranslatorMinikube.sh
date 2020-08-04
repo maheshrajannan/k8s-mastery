@@ -6,11 +6,14 @@
 # minikube --vm-driver=virtualbox start
 # minikube stop
 # My mac has 8 core 
+# Switch to root folder and run.
+cd ../../
 minikube start --memory 10240 --cpus=4 --vm-driver=virtualbox
 echo '1/20: Is Minikube running ?'
 minikube status
 echo '2/20: Reset Docker to prevent connection error'
 source ~/.bash_profile
+# TODO: Do i neeed the below 3 lines ?
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH

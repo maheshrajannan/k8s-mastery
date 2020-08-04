@@ -1,3 +1,5 @@
+# Switch to root folder and run.
+cd ../../
 echo '1/4: Rest Docker to prevent connection error'
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
