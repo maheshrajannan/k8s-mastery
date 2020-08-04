@@ -18,6 +18,9 @@ set -e
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
+echo "Trying to login. If you are NOT logged in, there will be a prompt"
+docker login
+
 echo "InstallSaLogic with Docker:"+ `date`
 
 # INFO: This check is added because sentiment-analysis-logic could be started twice, 

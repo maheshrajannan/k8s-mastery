@@ -13,6 +13,13 @@ abort()
 trap 'abort' 0
 
 set -e
+
+unset DOCKER_HOST
+unset DOCKER_TLS_VERIFY
+unset DOCKER_TLS_PATH
+echo "Trying to login. If you are NOT logged in, there will be a prompt"
+docker login
+
 cd ../../
 pwd
 # TODO: Please login before running the script, if you get an error.

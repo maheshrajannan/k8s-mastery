@@ -20,6 +20,8 @@ source ~/.bash_profile
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
+echo "Trying to login. If you are NOT logged in, there will be a prompt"
+docker login
 docker ps
 
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
