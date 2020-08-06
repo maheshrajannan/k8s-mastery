@@ -20,4 +20,5 @@ minikube service list
 
 echo '3/4: Stopping Minikube'
 minikube stop
+echo '4/4: Minikube Status'
 minikube status
