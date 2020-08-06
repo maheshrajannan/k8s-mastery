@@ -7,6 +7,16 @@
 # minikube stop
 # My mac has 8 core 
 # Switch to root folder and run.
+
+LEVEL=NONDEBUG
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo "Level is DEBUG"
+	read levelIsDebug	
+else
+	echo "Level is NOT DEBUG. There will be no wait"	
+	read levelIsNotDebug	
+fi
+
 cd ../../
 minikube start --memory 10240 --cpus=4 --vm-driver=virtualbox
 echo '1/16: Is Minikube running ?'
@@ -69,7 +79,10 @@ new_values=`minikube service sa-web-app-lb --url| cut -d "/" -f 3-`
 old_values=`cat oldValues.txt`
 echo "Old Values Are "$old_values
 echo "New Values Are "$new_values
-echo "Note the old and new values:";read consent;echo "you said $consent"
+
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo "Note the old and new values:";read consent;echo "you said $consent"
+fi
 
 echo $new_values > oldValues.txt
 echo $old_values > newValues.txt
@@ -85,13 +98,23 @@ echo "Running build"
 echo "11/16 Replacing Urls"
 echo "Replacing-"$old_values"-with-"$new_values"-src/App.js"
 grep $old_values src/App.js
-echo "Are old values found";read oldValuesFound;echo "hello $oldValuesFound"
+
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo "Are old values found";
+	read oldValuesFound;	
+fi
+
+echo "hello $oldValuesFound"
 sed -ie 's/'$old_values'/'$new_values'/g' src/App.js
-echo "Now the values of app.js are:";read xyz;echo "hello $xyz"
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo "Now the values of app.js are:";read xyz;echo "hello $xyz"
+fi
 
 cat src/App.js
 
-echo "Verified app.js what webapp host:port it talks to ? does it math lb ?:";read xyz;echo "hello $xyz"
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo "Verified app.js what webapp host:port it talks to ? does it math lb ?:";read xyz;echo "hello $xyz"
+fi
 
 echo "12/16 Installing.."
 rm -fr node_modules
@@ -103,10 +126,12 @@ npm run build
 docker build -f CompleteDockerfile -t $DOCKER_USER_ID/translator-frontend:Minikube .
 docker push $DOCKER_USER_ID/translator-frontend:Minikube
 
-echo "13/16 new image with tag Minikube is pushed (?)"
-# If debug then add wait for input.
-read xyz;
-echo "hello $xyz"
+echo "13/16 new image with tag Minikube is pushed"
+if [ "$LEVEL" == "DEBUG" ]; then
+	# If debug then add wait for input.
+	echo "13/16 VERIFY new image tag Minikube"
+	read xyz;
+fi
 
 echo "14/16 Replace mode"
 sed -ie 's/kubernatesDeployments/mode/g' public/index.html
