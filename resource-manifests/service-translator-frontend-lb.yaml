@@ -4,7 +4,6 @@ metadata:
   name: translator-frontend-lb
 spec:
   type: LoadBalancer       # 2
-  loadBalancerIP: "104.198.219.152"
   ports:
   - port: 80               # 3
     protocol: TCP          # 4
