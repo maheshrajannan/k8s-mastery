@@ -7,6 +7,8 @@
 # redis-251601
 # gcloud config set compute/zone [COMPUTE_ENGINE_ZONE]
 # https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
+sh deleteGCloudCluster.sh
+cd ../../
 echo '1/20: Is glcoud initialized'
 # Set node environment early so that it fails quickly.
 source ~/.bash_profile
@@ -17,7 +19,6 @@ unset DOCKER_TLS_PATH
 docker ps
 which nvm
 nvm use 12.13.0
-sh deleteGCloudCluster.sh
 # INFO: 
 # If you create more than 1 node and you exceed the limit,
 # you have to wait 2 days for increasing or decreasing the limit..
