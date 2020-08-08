@@ -17,9 +17,21 @@ set -e
 #TODO: add check to ensure the user is logged in.
 echo "Please ensure you are logged in to docker / docker desktop"
 source ~/.bash_profile
+
+# TODO make this as bash variable.
+# TODO Make this on every file ?
+LEVEL=NONDEBUG
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo "Level is DEBUG.Press Enter to continue."
+	read levelIsDebug	
+else
+	echo "Level is NOT DEBUG. There will be no wait."	
+fi
+
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
+
 echo "Trying to login. If you are NOT logged in, there will be a prompt"
 docker login
 docker ps
@@ -43,23 +55,33 @@ old_values=`cat ../oldValues.txt`
 echo $new_values > ../oldValues.txt
 
 echo "Replacing-"$old_values"-with-"$new_values"-src/App.js"
-read -p "Please note old and new values"
+if [ "$LEVEL" == "DEBUG" ]; then
+	read -p "Please note old and new values."
+fi
 sed -ie 's/'$old_values'/'$new_values'/g' src/App.js
 cat src/App.js
-read -p "App.js contains new values ?"
+if [ "$LEVEL" == "DEBUG" ]; then
+	read -p "App.js contains new values ?"
+fi
 
 cat public/index.html
-read -p "index.html contains new values ?"
+if [ "$LEVEL" == "DEBUG" ]; then
+	read -p "index.html contains new values ?"
+fi
 #TODO: is this necessary even for complete docker file ?
 echo "Running build"
 #npm run build
 #https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/
 echo "building docker image"
 docker build -f CompleteDockerfile -t $DOCKER_USER_ID/translator-frontend .
-read -p "Finished Building Looks right ?"
+if [ "$LEVEL" == "DEBUG" ]; then
+	read -p "Finished Building Looks right ?"
+fi
 
 docker push $DOCKER_USER_ID/translator-frontend
-read -p "Finished Pushing Looks right ?"
+if [ "$LEVEL" == "DEBUG" ]; then
+	read -p "Finished Pushing Looks right ?"
+fi
 
 docker pull $DOCKER_USER_ID/translator-frontend
 
@@ -82,12 +104,10 @@ else
   exit 1
 fi
 
-
 open -a "Google Chrome" --args --incognito "http://localhost:80"
 sleep 10
 open -a "Google Chrome" --args --incognito "http://localhost:80"
 sleep 10
-
 
 trap : 0
 

@@ -7,7 +7,19 @@
 # redis-251601
 # gcloud config set compute/zone [COMPUTE_ENGINE_ZONE]
 # https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
-sh deleteGCloudCluster.sh
+LEVEL=DEBUG
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo "Level is DEBUG"
+	read levelIsDebug	
+else
+	echo "Level is NOT DEBUG. There will be no wait"	
+fi
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo '0/20: Deleting gCloud Cluster'
+	sh deleteGCloudCluster.sh
+else
+	echo '0/20: Skip deleting gCloud Cluster'	
+fi
 cd ../../
 echo '1/20: Is glcoud initialized'
 # Set node environment early so that it fails quickly.
@@ -103,7 +115,15 @@ npm install
 npm run build
 
 docker build -f CompleteDockerfile -t $DOCKER_USER_ID/translator-frontend:Minikube .
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo "Is build successful ?"
+	read levelIsDebug	
+fi
 docker push $DOCKER_USER_ID/translator-frontend:Minikube
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo "Is push successful ?"
+	read levelIsDebug	
+fi
 
 sed -ie 's/gCloudK8s/mode/g' public/index.html
 echo "Restoring :"$CURRENT_DATE" With current_time"

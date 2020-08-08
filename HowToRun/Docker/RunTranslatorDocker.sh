@@ -14,25 +14,32 @@ trap 'abort' 0
 
 set -e
 
+LEVEL=NONDEBUG
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo "Level is DEBUG"
+	read levelIsDebug	
+else
+	echo "Level is NOT DEBUG. There will be no wait"	
+fi
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
 echo "Trying to login. If you are NOT logged in, there will be a prompt"
-docker login
+# docker login
 
 cd ../../
 pwd
-# TODO: Please login before running the script, if you get an error.
+# DONE: Please login before running the script, if you get an error.
 # docker login -u $DOCKER_USER_ID -p $DOCKER_PASSWORD
-# echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USER_ID --password-stdin
+echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USER_ID --password-stdin
 #RunSentimentAnalyzerDocker.sh
-#a741bef6-18bd-4c6a-9060-b9a6a89b2329
 CURRENT_DIR=`pwd`
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%S_%p`
 mkdir logs/$CURRENT_DATE
 mv logs/*.log logs/$CURRENT_DATE/
 echo "Starting sa-logic"
 cd sa-logic
+# TODO move it to how to run the directories.
 sh InstallSaLogicDocker.sh > ../logs/sa-logic.log
 #sh InstallSaLogicDocker.sh
 echo "Started sa-logic. Do tail -f logs/sa-logic.log from "+$CURRENT_DIR

@@ -13,6 +13,15 @@ abort()
 trap 'abort' 0
 
 set -e
+# TODO make this as bash variable.
+# TODO Make this on every file ?
+LEVEL=NONDEBUG
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo "Level is DEBUG.Press Enter to continue."
+	read levelIsDebug	
+else
+	echo "Level is NOT DEBUG. There will be no wait."	
+fi
 #InstallSaLogicLocally.sh
 #Kill the process
 unset DOCKER_HOST

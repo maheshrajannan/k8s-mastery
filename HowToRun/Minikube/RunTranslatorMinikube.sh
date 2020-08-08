@@ -14,7 +14,6 @@ if [ "$LEVEL" == "DEBUG" ]; then
 	read levelIsDebug	
 else
 	echo "Level is NOT DEBUG. There will be no wait"	
-	read levelIsNotDebug	
 fi
 
 cd ../../
