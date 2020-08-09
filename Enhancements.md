@@ -21,9 +21,22 @@ Replace it with do pause features.
 
 Finished Building Looks right ?Finished Pushing Looks right ?
 
+# 3. Build and push each time the sub components.
 
-# 3
+Build and push image each time.
+
+# 4. delete all images before pushing.
+
+Ideally should auto-increment tags and push, but that requires more work.
+
+# 4. ok. 
 
 Apply ingress. Ensure that is not getting deleted and rebuilt each time.
 
+Static ips are 1 penny an hour as compared to 10 pennies an hour for a K8s cluster.
+
 This way all the hardcoding can be thrown away for good.
+
+https://www.orange-networks.com/blogs/210-ingress-controller-simplified-routing-in-kubernetes
+
+# 4. OK. Script refactoring.

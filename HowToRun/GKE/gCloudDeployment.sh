@@ -7,7 +7,6 @@
 # redis-251601
 # gcloud config set compute/zone [COMPUTE_ENGINE_ZONE]
 # https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
-LEVEL=DEBUG
 if [ "$LEVEL" == "DEBUG" ]; then
 	echo "Level is DEBUG"
 	read levelIsDebug	
@@ -28,6 +27,9 @@ echo '2/20: Reset Docker to prevent connection error'
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
+echo '3/20: Checking Docker'
+echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USER_ID --password-stdin
+docker login
 docker ps
 which nvm
 nvm use 12.13.0
@@ -43,7 +45,12 @@ nvm use 12.13.0
 # default-scheduler  0/1 nodes are available: 1 Insufficient cpu.
 # https://stackoverflow.com/
 # questions/38869673/pod-in-pending-state-due-to-insufficient-cpu
-gcloud container clusters create translator3 --num-nodes=2
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo '4/20: Create the cluster from scratch if necessary.[OPTIONAL]'
+	gcloud container clusters create translator3 --num-nodes=2
+else
+	echo '4/20 SKIP creating cluster from scratch'	
+fi
 
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
 echo "Starting At "$CURRENT_DATE
