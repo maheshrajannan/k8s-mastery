@@ -1,6 +1,6 @@
 Enahancements.md
 
-# 1 Fix the CPU error.
+# 1 Fix the CPU error.DONE
 Events:
   Type     Reason            Age                From               Message
   ----     ------            ----               ----               -------
@@ -10,7 +10,7 @@ Events:
 
   increasing the number of pods to 3. Now to 2.
 
-# 2
+# 2. Productivity enhancing changes.DONE
 Productivity enhancing changes. Please make them.
 
   Remove Looks right.
@@ -21,7 +21,7 @@ Replace it with do pause features.
 
 Finished Building Looks right ?Finished Pushing Looks right ?
 
-# 3. Build and push each time the sub components.
+# 3. Build and push each time the sub components.DOING
 
 Build and push image each time.
 
@@ -40,3 +40,12 @@ This way all the hardcoding can be thrown away for good.
 https://www.orange-networks.com/blogs/210-ingress-controller-simplified-routing-in-kubernetes
 
 # 4. OK. Script refactoring.
+
+# 5. no space left on device
+
+Step 7/15 : COPY . /app
+failed to create rwlayer: mkdir /var/lib/docker/overlay2/da793e6844065908cfb0cd7ff48e1c7883b3fcff38c0067d1a3589dfae4a5cc2/work: no space left on device
+
+https://stackoverflow.com/questions/30604846/docker-error-no-space-left-on-device
+
+docker system prune

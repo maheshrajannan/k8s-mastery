@@ -90,6 +90,8 @@ echo "Replacing :"$CURRENT_DATE" With current_time"
 sed -ie 's/'$CURRENT_DATE'/current_time/g' public/index.html
 cat public/index.html
 
+# This is the running part.
+
 docker run -d -p 80:80 $DOCKER_USER_ID/translator-frontend
 echo "List of containers running now"
 docker container ls -a
@@ -108,6 +110,8 @@ open -a "Google Chrome" --args --incognito "http://localhost:80"
 sleep 10
 open -a "Google Chrome" --args --incognito "http://localhost:80"
 sleep 10
+
+# End of running.
 
 trap : 0
 
