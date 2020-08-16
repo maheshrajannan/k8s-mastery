@@ -8,26 +8,26 @@
 # gcloud config set compute/zone [COMPUTE_ENGINE_ZONE]
 # https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
 if [ "$LEVEL" == "DEBUG" ]; then
-	echo "Level is DEBUG"
+	echo "Level is DEBUG. Press enter to continue"
 	read levelIsDebug	
 else
 	echo "Level is NOT DEBUG. There will be no wait"	
 fi
 if [ "$LEVEL" == "DEBUG" ]; then
-	echo '0/20: Deleting gCloud Cluster'
+	echo '1/20: Deleting gCloud Cluster'
 	sh deleteGCloudCluster.sh
 else
-	echo '0/20: Skip deleting gCloud Cluster'	
+	echo '1/20: Skip deleting gCloud Cluster'	
 fi
 cd ../../
-echo '1/20: Is glcoud initialized'
+echo '2/20: Is glcoud initialized'
 # Set node environment early so that it fails quickly.
 source ~/.bash_profile
-echo '2/20: Reset Docker to prevent connection error'
+echo '3/20: Reset Docker to prevent connection error'
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
-echo '3/20: Checking Docker'
+echo '4/20: Checking Docker'
 echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USER_ID --password-stdin
 docker login
 docker ps
@@ -46,14 +46,20 @@ nvm use 12.13.0
 # https://stackoverflow.com/
 # questions/38869673/pod-in-pending-state-due-to-insufficient-cpu
 if [ "$LEVEL" == "DEBUG" ]; then
-	echo '4/20: Create the cluster from scratch if necessary.[OPTIONAL]'
+	echo '5/20: Create the cluster from scratch if necessary.[OPTIONAL]'
 	gcloud container clusters create translator3 --num-nodes=2
 else
-	echo '4/20 SKIP creating cluster from scratch'	
+	echo '6/20 SKIP creating cluster from scratch'	
 fi
+
+echo "7/20 Building sa-logic component in no hup mode"
+cd sa-logic
+sh BuildSaLogicDocker.sh &
+cd ../
 
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
 echo "Starting At "$CURRENT_DATE
+echo "8/20 Deleting Deployments"
 kubectl get deployments
 #INFO: there may not be a need to delete.
 kubectl delete deployment translator-frontend
@@ -66,6 +72,9 @@ kubectl delete service translator-frontend-lb
 kubectl delete service sa-logic
 kubectl delete service sa-web-app-lb
 kubectl get services
+
+echo "Press Enter if sa-logic is pushed to docker hub."
+read saLogicIsPushed
 
 kubectl apply -f resource-manifests/sa-logic-deployment.yaml --record
 kubectl get deployments

@@ -21,4 +21,4 @@ docker container ls -a
 
 # INFO: https://stackoverflow.com/questions/30604846/docker-error-no-space-left-on-device
 echo "Docker system pruning:"
-docker system prune
+yes | docker system prune
