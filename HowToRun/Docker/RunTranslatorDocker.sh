@@ -40,7 +40,7 @@ mv logs/*.log logs/$CURRENT_DATE/
 echo "Starting sa-logic"
 cd sa-logic
 # TODO move it to how to run the directories.
-sh InstallSaLogicDocker.sh > ../logs/sa-logic.log
+sh InstallSaLogicDockerNew.sh > ../logs/sa-logic.log
 #sh InstallSaLogicDocker.sh
 echo "Started sa-logic. Do tail -f logs/sa-logic.log from "+$CURRENT_DIR
 #open -a Terminal $CURRENT_DIR/logs

@@ -49,3 +49,9 @@ failed to create rwlayer: mkdir /var/lib/docker/overlay2/da793e6844065908cfb0cd7
 https://stackoverflow.com/questions/30604846/docker-error-no-space-left-on-device
 
 docker system prune
+
+# 5. Add docker prune in proper places, to preven thsi from happening
+
+# 6. rootless
+
+https://www.baeldung.com/podman-intro

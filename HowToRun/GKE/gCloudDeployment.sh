@@ -115,6 +115,7 @@ echo "Replacing-"$old_values"-with-"$new_values"-src/App.js"
 sed -ie 's/'$old_values'/'$new_values'/g' src/App.js
 cat src/App.js
 
+# TODO:
 rm -fr node_modules
 
 npm install
