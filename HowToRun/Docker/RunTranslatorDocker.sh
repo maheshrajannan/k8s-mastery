@@ -46,7 +46,7 @@ echo "Started sa-logic. Do tail -f logs/sa-logic.log from "+$CURRENT_DIR
 #open -a Terminal $CURRENT_DIR/logs
 echo "Starting sa-webapp"
 cd ../sa-webapp
-sh InstallSaWebAppDocker.sh > ../logs/sa-webapp.log
+sh InstallSaWebAppDockerNew.sh > ../logs/sa-webapp.log
 #sh InstallSaWebAppDocker.sh
 #open -a Terminal $CURRENT_DIR/logs
 echo "Started sa-webapp. Do tail -f logs/sa-webapp.log from "+$CURRENT_DIR

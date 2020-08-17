@@ -1,4 +1,5 @@
 set -e
+# TODO: this script is broken.
 # TODO: Check gCloud has the cluster. If present then delete.
 TRANSLATOR=`kubectl config get-contexts -o name | grep translator`
 echo "To Delete-" $TRANSLATOR
@@ -6,8 +7,9 @@ if [ -z $TRANSLATOR ]; then
 	echo "No clusters to delete"
 else
 	# gke_translator-258700_us-central1-f_translator3
-	kubectl config delete-cluster $TRANSLATOR
-	kubectl config delete-context $TRANSLATOR
+	echo "SOME clusters to delete"
+	# kubectl config delete-cluster $TRANSLATOR
+	# kubectl config delete-context $TRANSLATOR
 fi
 # INFO: https://stackoverflow.com/questions/30604846/docker-error-no-space-left-on-device
 echo "Docker system pruning:"

@@ -55,3 +55,9 @@ docker system prune
 # 6. rootless
 
 https://www.baeldung.com/podman-intro
+
+# 7. Add readiness probe.
+
+Add readiness probe that self checks that something really came up...EASY low hanging fruit.
+
+# 8. Test thoroughly before starting.
