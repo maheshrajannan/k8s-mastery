@@ -1,3 +1,26 @@
+#!/bin/sh
+abort()
+{
+    echo >&2 '
+***************
+*** ABORTED RunTranslatorMinikube.sh ***
+***************
+'
+    echo "An error occurred in RunTranslatorMinikube.sh . Exiting..." >&2
+    exit 1
+}
+
+trap 'abort' 0
+
+set -e
+
+LEVEL=NONDEBUG
+if [ "$LEVEL" == "DEBUG" ]; then
+	echo "Level is DEBUG.Press Enter"
+else
+	echo "Level is NOT DEBUG. There will be no wait"	
+fi
+
 #kubernatesDeployments.sh
 # NOTE:INFO:
 # you would have to delete minikube if you face an error.
@@ -8,28 +31,21 @@
 # My mac has 8 core 
 # Switch to root folder and run.
 
-LEVEL=NONDEBUG
-if [ "$LEVEL" == "DEBUG" ]; then
-	echo "Level is DEBUG"
-	read levelIsDebug	
-else
-	echo "Level is NOT DEBUG. There will be no wait"	
-fi
-
 cd ../../
 minikube start --memory 10240 --cpus=4 --vm-driver=virtualbox
 echo '1/20: Is Minikube running ?'
 minikube status
 echo '2/20: Reset Docker to prevent connection error'
+# TODO: Bad source of bug...sourcing bash profile here.
 source ~/.bash_profile
-# TODO: Do i neeed the below 3 lines ?
+# TODO: Do i need the below 3 lines ?
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
 docker ps
 echo '3/20: Set node environment early so that it fails quickly'
 #Set node environment early so that it fails quickly.
-which nvm
+# which nvm
 nvm use 12.13.0
 
 CURRENT_DATE=`date +%b-%d-%y_%I_%M_%p`
@@ -38,15 +54,11 @@ echo "Starting At "$CURRENT_DATE
 echo "4/20 Deleting previous deployments."
 #TODO: invoke delete.
 kubectl get deployments
-kubectl delete deployment translator-frontend
-kubectl delete deployment sa-logic
-kubectl delete deployment sa-web-app
+kubectl delete deployments --all
 kubectl get deployments
 
 kubectl get services
-kubectl delete service translator-frontend-lb
-kubectl delete service sa-logic
-kubectl delete service sa-web-app-lb
+kubectl delete services --all
 kubectl get services
 
 echo "5/20 Building sa-logic component."
@@ -129,30 +141,40 @@ npm install
 npm run build
 
 docker build -f CompleteDockerfile -t $DOCKER_USER_ID/translator-frontend:Minikube .
+echo "13/20 Pushing.."
 docker push $DOCKER_USER_ID/translator-frontend:Minikube
 
 echo "14/20 new image with tag Minikube is pushed"
 if [ "$LEVEL" == "DEBUG" ]; then
 	# If debug then add wait for input.
-	echo "13/20 VERIFY new image tag Minikube"
+	echo "15/20 VERIFY new image tag Minikube"
 	read xyz;
 fi
 
-echo "15/20 Replace mode"
+echo "16/20 Replace mode"
 sed -ie 's/kubernatesDeployments/mode/g' public/index.html
 echo "Restoring :"$CURRENT_DATE" With current_time"
 sed -ie 's/'$CURRENT_DATE'/current_time/g' public/index.html
 cat public/index.html
 
-echo "16/20 Deploying Frontend"
+echo "17/20 Deploying Frontend"
 cd ../
 kubectl apply -f resource-manifests/translator-frontend-deployment.yaml
 kubectl get pods
 kubectl get svc
 
-echo "17/20 Deploying Frontend lb"
+echo "18/20 Deploying Frontend lb"
 kubectl get pods
 kubectl create -f resource-manifests/service-translator-frontend-lb.yaml
 kubectl get svc
 
+echo "19/20 Opening Frontend lb"
 minikube service translator-frontend-lb
+echo "20/20 DONE"
+
+trap : 0
+
+echo >&2 '
+************
+*** DONE RunTranslatorMinikube ***
+************'

@@ -8,8 +8,7 @@
 # gcloud config set compute/zone [COMPUTE_ENGINE_ZONE]
 # https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
 if [ "$LEVEL" == "DEBUG" ]; then
-	echo "Level is DEBUG. Press enter to continue"
-	read levelIsDebug	
+	echo "Level is DEBUG. Press enter when paused"
 else
 	echo "Level is NOT DEBUG. There will be no wait"	
 fi
