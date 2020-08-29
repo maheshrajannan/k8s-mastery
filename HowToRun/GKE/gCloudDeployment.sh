@@ -8,15 +8,9 @@
 # gcloud config set compute/zone [COMPUTE_ENGINE_ZONE]
 # https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
 if [ "$LEVEL" == "DEBUG" ]; then
-	echo "Level is DEBUG. Press enter when paused"
+	echo "1/25: Level is DEBUG. Press enter when paused"
 else
-	echo "Level is NOT DEBUG. There will be no wait"	
-fi
-if [ "$LEVEL" == "DEBUG" ]; then
-	echo '1/25: Deleting gCloud Cluster'
-	sh deleteGCloudCluster.sh
-else
-	echo '1/25: Skip deleting gCloud Cluster'	
+	echo "1/25: Level is NOT DEBUG. There will be no wait"	
 fi
 cd ../../
 echo '2/25: Is glcoud initialized'
@@ -30,6 +24,8 @@ echo '4/25: Checking Docker'
 echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USER_ID --password-stdin
 docker login
 docker ps
+echo '5/25: Set nvm'
+# TODO this should go to translator.
 which nvm
 nvm use 12.13.0
 # INFO: 
@@ -44,13 +40,8 @@ nvm use 12.13.0
 # default-scheduler  0/1 nodes are available: 1 Insufficient cpu.
 # https://stackoverflow.com/
 # questions/38869673/pod-in-pending-state-due-to-insufficient-cpu
-if [ "$LEVEL" == "DEBUG" ]; then
-	echo '5/25: Create the cluster from scratch if necessary.[OPTIONAL]'
-	gcloud container clusters create translator3 --num-nodes=2
-else
-	echo '6/25 SKIP creating cluster from scratch'	
-fi
-
+echo '6/25: Create the cluster from scratch if necessary.[OPTIONAL]'
+sh createClusterIfNeeded.sh
 echo "7/25 Building sa-logic component in no hup mode"
 cd sa-logic
 # TODO: add readness probe. 
@@ -184,13 +175,13 @@ kubectl apply -f resource-manifests/translator-frontend-deployment.yaml
 kubectl get pods
 kubectl get svc
 
-echo "23/25 translator-frontend service."
+echo "24/25 translator-frontend service."
 kubectl get pods
 kubectl create -f resource-manifests/service-translator-frontend-lb.yaml
 kubectl get svc
 kubectl rollout status deployment translator-frontend
 
-echo "24/25 translator-frontend service."
+echo "25/25 translator-frontend service."
 translatorIp=""
 translatorPort=""
 while [ -z $translatorIp ]; do
@@ -201,3 +192,11 @@ while [ -z $translatorIp ]; do
 done
 
 echo "25/25 launch "$translatorIp":"$translatorPort
+
+
+trap : 0
+
+echo >&2 '
+************
+*** DONE gCloudDeployment.sh ***
+************'
