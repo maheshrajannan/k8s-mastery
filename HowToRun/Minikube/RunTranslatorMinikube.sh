@@ -54,11 +54,11 @@ echo "Starting At "$CURRENT_DATE
 echo "4/20 Deleting previous deployments."
 #TODO: invoke delete.
 kubectl get deployments
-kubectl delete deployments --all
+kubectl delete deployments --all --ignore-not-found
 kubectl get deployments
 
 kubectl get services
-kubectl delete services --all
+kubectl delete services --all --ignore-not-found
 kubectl get services
 
 echo "5/20 Building sa-logic component."
