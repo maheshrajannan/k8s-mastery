@@ -1,3 +1,19 @@
+#!/bin/sh
+abort()
+{
+    echo >&2 '
+***************
+*** ABORTED StopTranslator.sh Docker ***
+***************
+'
+    echo "An error occurred in StopTranslator.sh docker . Exiting..." >&2
+    exit 1
+}
+
+trap 'abort' 0
+
+set -e
+
 # To stop all running containers use the docker container stop command
 # followed by a list of all containers IDs.
 # TODO: add steps...or do i need this to be pretty ?
@@ -22,3 +38,9 @@ docker system prune -f
 echo "After Pruning All Containers:"
 docker container ls -a
 
+trap : 0
+
+echo >&2 '
+************
+*** DONE StopTranslatorDocker ***
+************'
