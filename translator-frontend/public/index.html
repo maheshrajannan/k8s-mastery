@@ -5,15 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="#000000">
   <!-- TODO: Find a correct way to disable cache-->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" >
+  <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" > -->
+  <meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>
+  <meta http-equiv="Expires" content="-1" >
   <meta http-equiv="Pragma" content="no-cache" >
-  <meta http-equiv="Expires" content="0" >
   <!--
     manifest.json provides metadata used when your web app is added to the
     homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
   -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
   <link rel="shortcut icon" href="%PUBLIC_URL%/sa-icon.ico">
+  <!-- TODO: -->  
+  <a href="#" onclick="window.location.reload(true);">click</a>
 
   <!--
     Notice the use of %PUBLIC_URL% in the tags above.
@@ -26,10 +29,12 @@
   -->
   <title>Sentiment Analysis</title>
 </head>
+<!--<body onload="window.location.reload(true);">-->
 <body onunload="">
 <noscript>
   You need to enable JavaScript to run this app.
 </noscript>
+<!-- The root div is rendered by REACT DOME rendering -->
 <div id="root"></div>
  <h1 id="timeId"> from {mode} {current_time} </h1>
 <!--

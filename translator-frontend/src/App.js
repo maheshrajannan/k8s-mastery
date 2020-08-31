@@ -21,8 +21,8 @@ class App extends Component {
     };
 
     analyzeSentence() {
-        console.log("Contacting 34.122.2.155:80");
-        fetch('http://34.122.2.155:80/sentiment', {
+        console.log("Contacting 34.121.210.221:80");
+        fetch('http://34.121.210.221:80/sentiment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ class App extends Component {
 
     onEnterPress = e => {
         if (e.key === 'Enter') {
-            this.analyzeSentence();
+        this.analyzeSentence();
         }
     };
 
@@ -43,7 +43,20 @@ class App extends Component {
         const polarityComponent = this.state.polarity !== undefined ?
             <Polarity sentence={this.state.sentence} polarity={this.state.polarity} spanishTranslation ={this.state.spanishTranslation}/> :
             null;
-
+        
+        //if (caches) {
+          // Service worker cache should be cleared with caches.delete()
+          //caches.keys().then(function(names) {
+          //  for (let name of names) caches.delete(name);
+          //});
+        // delete browser cache and hard reload
+        //window.location.reload(true);
+        // TODO: note browser behaviours are still not standardized.
+        // Browsers ignore all cache invalidate settings, for the sake of 
+        // performance. 
+        // https://dev.to/flexdinesh/cache-busting-a-react-app-22lk
+       //}
+ 
         return (
             <MuiThemeProvider>
                 <div className="centerize">
