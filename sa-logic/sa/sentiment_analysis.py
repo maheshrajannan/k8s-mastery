@@ -9,6 +9,7 @@ def analyse_sentiment():
     sentence = request.get_json()['sentence']
     print('sentence is:',sentence)
     polarity = TextBlob(sentence).sentences[0].polarity
+    # get zh-CN code as input from UI say dropdown or text field.
     es_blob = TextBlob(sentence).translate(to='zh-CN')
     return jsonify(
         sentence=sentence,
