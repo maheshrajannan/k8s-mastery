@@ -34,6 +34,7 @@ if [[ TRANSLATOR_EXIST -ne 0 ]]; then
 	kubectl config delete-context $TRANSLATOR_FOUND
 	echo "Deleted the cluster context:"$TRANSLATOR_FOUND
 	echo "gcloud container clusters delete $TRANSLATOR_FOUND -q --async"
+	# INFO: when you try to do things parallely, then contexts will be deleted but not the cluster. 
 	gcloud container clusters delete $TRANSLATOR_NAME
 	echo "deletion of gcloud cluster is in progress...in background."
 else

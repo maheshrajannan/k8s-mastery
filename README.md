@@ -1,3 +1,11 @@
+TODO
+
+1. Keep doing npm audit fix.
+2. upgrade python.
+3. ugrade docker
+4. upgrade kubectl
+
+
 This is a translator APP And Python does basic language translation.
 
 Maheshs-MacBook-Pro-2:resource-manifests maheshrajannan$ minikube service list
