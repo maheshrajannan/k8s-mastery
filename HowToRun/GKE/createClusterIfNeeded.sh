@@ -18,15 +18,19 @@ set -e
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
+TRANSLATOR_NAME=translator-app
 
-TRANSLATOR=$(kubectl config get-contexts -o name | grep translator3 | wc -c)
-echo "Should i create -" $TRANSLATOR
-if [[ TRANSLATOR -ne 0 ]]; then
-	echo "Cluster Exists. NO Need to be created."${TRANSLATOR};
+# kubectl config get-contexts -o name | grep translator-app | wc -c)
+
+TRANSLATOR_FOUND=$(kubectl config get-contexts -o name | grep $TRANSLATOR_NAME | wc -c)
+echo "Should i create -" $TRANSLATOR_FOUND " with name " $TRANSLATOR_NAME
+if [[ TRANSLATOR_FOUND -ne 0 ]]; then
+	echo "Cluster Exists. NO Need to be created."${TRANSLATOR_NAME};
 else
 	# DONE: It is now coming here.
 	echo "Cluster Does not exit. Need to be created.";
-	gcloud container clusters create translator3 --num-nodes=2
+	echo "gcloud container clusters create $TRANSLATOR_NAME --num-nodes=2"
+	gcloud container clusters create $TRANSLATOR_NAME --num-nodes=2
 fi
 
 trap : 0
