@@ -19,13 +19,14 @@ echo '1/4: Reset Docker to prevent connection error'
 unset DOCKER_HOST
 unset DOCKER_TLS_VERIFY
 unset DOCKER_TLS_PATH
+echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USER_ID --password-stdin
 
 echo '2/4: Deleting Deployments'
 kubectl get deployments
 kubectl delete deployment translator-frontend --ignore-not-found
 kubectl delete deployment sa-logic --ignore-not-found
 kubectl delete deployment sa-web-app --ignore-not-found
-kubectl get deployments
+kubectl get Services
 
 echo '3/4: Deleting Services'
 kubectl delete service translator-frontend-lb --ignore-not-found
