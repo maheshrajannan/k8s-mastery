@@ -107,3 +107,5 @@ TODO: now the completeDocker is running. However the current_time is getting mes
 If this happens simply revert the public/index.html and re-run the build and it will fix the issue.
 
 Also .dockerignore has ignored build directory, so the other dockerFile may NOT work.
+
+TODO: add https

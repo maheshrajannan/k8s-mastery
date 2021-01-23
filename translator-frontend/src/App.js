@@ -21,8 +21,8 @@ class App extends Component {
     };
 
     analyzeSentence() {
-        console.log("Contacting 34.69.117.9:80");
-        fetch('http://34.69.117.9:80/sentiment', {
+        console.log("Contacting 34.67.110.216:80");
+        fetch('http://34.67.110.216:80/sentiment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
