@@ -15,7 +15,23 @@ def analyse_sentiment():
     # TODO: create another method for translation.
     # TODO: get the language to be translated to as.
     return jsonify(
-        sentence=sentence,
+        sentence= "analysed"+sentence,
+        spanishTranslation="{0}".format(es_blob),
+        polarity=polarity
+    )
+
+@app.route("/translate", methods=['POST','GET'])
+def translate():
+    sentence = request.get_json()['sentence']
+    print('sentence is:',sentence)
+    polarity = TextBlob(sentence).sentences[0].polarity
+    # get zh-CN code as input from UI say dropdown or text field.
+    es_blob = TextBlob(sentence).translate(to='zh-CN')
+    # TODO: change to translation
+    # TODO: create another method for translation.
+    # TODO: get the language to be translated to as.
+    return jsonify(
+        sentence="translated"+sentence,
         spanishTranslation="{0}".format(es_blob),
         polarity=polarity
     )

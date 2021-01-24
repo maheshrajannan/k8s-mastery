@@ -21,8 +21,21 @@ class App extends Component {
     };
 
     analyzeSentence() {
-        console.log("Contacting 34.67.110.216:80");
-        fetch('http://34.67.110.216:80/sentiment', {
+        console.log("Contacting 34.70.19.92:80");
+        fetch('http://34.70.19.92:80/sentiment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({sentence: this.textField.getValue()})
+        })
+            .then(response => response.json())
+            .then(data => this.setState(data));
+    }
+
+    translateSentence() {
+        console.log("Contacting 34.70.19.92:80");
+        fetch('http://34.70.19.92:80/translate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -64,7 +77,8 @@ class App extends Component {
                         <h2>Translator</h2>
                         <TextField id="yourSentenceId" ref={ref => this.textField = ref} onKeyUp={this.onEnterPress.bind(this)}
                                    hintText="Type your sentence."/>
-                        <RaisedButton id="yourSentenceSendId" label="Send" style={style} onClick={this.analyzeSentence.bind(this)}/>
+                        <RaisedButton id="yourSentenceSendId" label="Analyze" style={style} onClick={this.analyzeSentence.bind(this)}/>
+                        <RaisedButton id="yourSentenceTranslateId" label="Translate" style={style} onClick={this.translateSentence.bind(this)}/>
                         {polarityComponent}
                     </Paper>
                 </div>
