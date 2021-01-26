@@ -108,4 +108,52 @@ If this happens simply revert the public/index.html and re-run the build and it 
 
 Also .dockerignore has ignored build directory, so the other dockerFile may NOT work.
 
-TODO: add https
+TODO: add https.DOING.
+
+TODO: move sa-logic related files in to itself.
+TODO: move it out as separate repo.
+
+vi /usr/local/etc/nginx/nginx.conf
+
+
+server {
+    listen 443 http2 ssl;
+    listen [::]:443 http2 ssl;
+
+    server_name localhost;
+
+    ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+    ssl_dhparam /etc/ssl/certs/dhparam.pem;
+}
+
+Maheshs-MBP-3:html maheshrajannan$ vi /usr/local/etc/nginx/nginx.conf
+Maheshs-MBP-3:html maheshrajannan$ 
+
+
+server {
+    listen 443 http2 ssl;
+    listen [::]:443 http2 ssl;
+
+    server_name localhost;
+
+    ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+    ssl_dhparam /etc/ssl/certs/dhparam.pem;
+}
+
+https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-on-centos-7
+
+TODO:
+https://cloud.google.com/kubernetes-engine/docs/tutorials/configuring-domain-name-static-ip
+
+https://cloud.google.com/dns/docs/tutorials/create-domain-tutorial
+
+static ip, then domain, then https.
+
+Check the ingress branch and refresh those.
+
+TODO
+Updates are available for some Cloud SDK components.  To install them,
+please run:
+  $ gcloud components update

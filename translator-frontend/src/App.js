@@ -21,8 +21,8 @@ class App extends Component {
     };
 
     analyzeSentence() {
-        console.log("Contacting 34.70.19.92:80");
-        fetch('http://34.70.19.92:80/sentiment', {
+        console.log("Contacting 35.224.53.27:80");
+        fetch('http://35.224.53.27:80/sentiment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,8 +34,8 @@ class App extends Component {
     }
 
     translateSentence() {
-        console.log("Contacting 34.70.19.92:80");
-        fetch('http://34.70.19.92:80/translate', {
+        console.log("Contacting 35.224.53.27:80");
+        fetch('http://35.224.53.27:80/translate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
