@@ -2,7 +2,7 @@ TODO
 
 1. Keep doing npm audit fix. DONE
 2. upgrade python. DONE
-3. ugrade docker. DONE.
+3. upgrade docker. DONE.
 4. upgrade kubectl
 
 
